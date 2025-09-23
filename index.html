@@ -10,11 +10,15 @@
 </head>
 <body>
 
-<audio id="bgmusic" src="XDFun Anthem (3).mp3" loop></audio>
+<audio id="bgmusic" src="XDFun Anthem (3).mp3" loop autoplay></audio>
 <script>
   window.addEventListener('DOMContentLoaded', function() {
     var audio = document.getElementById('bgmusic');
-    audio.play().catch(function(){});
+    audio.play().catch(function() {
+      var info = document.createElement('div');
+      info.innerHTML = '<button onclick="document.getElementById(\'bgmusic\').play()">Click to enable music</button>';
+      document.body.appendChild(info);
+    });
   });
 </script>
   

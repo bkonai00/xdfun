@@ -72,21 +72,6 @@ main {
   text-shadow: 0 0 6px #ff00cc;
 }
 
-.music-enable-btn {
-  position: fixed;
-  bottom: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  z-index: 9999;
-  padding: 1em 2em;
-  font-size: 1.2em;
-  background: #222;
-  color: #fff;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-}
-
 .bio {
   color: #fff;
   font-size: 1.05rem;

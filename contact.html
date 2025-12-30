@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact xDFUN</title>
+  <meta name="description" content="Contact xdfun for business inquiries, collaborations, or general messages." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Audio player: place once on each page (e.g., in footer before </body>) -->
+<div class="audio-player" id="siteAudioPlayer" aria-label="Background audio player">
+  <audio id="siteAudio" preload="none" src="assets/antham.mp3" loop></audio>
+
+  <button id="audioToggle" class="audio-btn" aria-pressed="false" aria-label="Play background music">
+    <span id="audioIcon">▶</span>
+  </button>
+
+  <div class="audio-ui" aria-hidden="false">
+    <input id="audioProgress" class="audio-progress" type="range" min="0" max="100" value="0" aria-label="Audio progress" />
+    <button id="audioMute" class="audio-btn audio-mute" aria-pressed="false" aria-label="Mute music">🔊</button>
+  </div>
+</div>
+</head>
+<body class="dark">
+  <header class="site-header container header-inner">
+    <a class="logo-link" href="index.html">
+  <img src="assets/logo.svg" alt="xdfun logo" style="width:150px; height:auto;">
+</a>
+  </header>
+
+  <main class="container section-listing">
+    <h1>Contact</h1>
+    <p class="muted">Business email: <a href="mailto:business@xdfun.example">connect@xdfun.in</a></p>
+
+    <form id="contactForm" class="contact-form" novalidate>
+      <!-- Honeypot - hidden field for bots; keep name something normal (server checks) -->
+      <input type="text" name="company" style="display:none" aria-hidden="true" tabindex="-1" />
+
+      <!-- Identify the form in your Formspree inbox -->
+      <input type="hidden" name="_subject" value="Contact form submission — xdfun website" />
+
+      <label>
+        <span class="sr-only">Name</span>
+        <input name="name" type="text" placeholder="Name" required />
+      </label>
+
+      <label>
+        <span class="sr-only">Email</span>
+        <input name="email" type="email" placeholder="Email" required />
+      </label>
+
+      <label>
+        <span class="sr-only">Message</span>
+        <textarea name="message" rows="6" placeholder="Message" required></textarea>
+      </label>
+
+      <button class="btn btn-accent" type="submit">Send Message</button>
+
+      <!-- Inline status messages (aria-live for screen readers) -->
+      <div id="contactStatus" role="status" aria-live="polite" class="muted small" style="margin-top:10px"></div>
+
+      <p class="muted small">Submit Your quarry here.</p>
+    </form>
+
+    <div class="social-row">
+        <a class="social" href="https://www.youtube.com/@xdfunYT" aria-label="YouTube" target="_blank">YouTube</a>
+        <a class="social" href="https://dc.gg/xdfun" aria-label="Discord" target="_blank">Discord</a>
+        <a class="social" href="https://kick.com/xdfun" aria-label="Kick" target="_blank">Kick</a>
+        <a class="social" href="https://www.instagram.com/cc_xdfun" aria-label="Instagram" target="_blank">Instagram</a>
+        <a class="social" href="https://twitter.com/xdfunyt" aria-label="X" target="_blank">X</a>
+        <a class="social" href="https://wa.me/qr/YXFKDUZA7NEXN1" aria-label="Whatsapp" target="_blank">Whatsapp</a>
+	<a class="social" href="https://www.facebook.com/share/1FvPXiCSuG/" aria-label="Facebook" target="_blank">Facebook</a>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img src="assets/logo.svg" alt="xdfun logo" style="width:150px; height:auto;">
+        <div class="footer-meta">
+          <span>Built for the community (❤️ ω ❤️) powered by passion</span>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-meta">
+          <strong>xdfun</strong>
+          <span>© 2025 Bikram Konai</span>
+	<div><a href="index.html">Back home</a></div>
+        </div>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>

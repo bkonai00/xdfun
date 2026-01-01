@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy - xdfun</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Gaming Theme Colors */
+            --primary-red: #e62e2e;
+            --primary-blue: #2eb8e6;
+            --bg-black: #0a0b10;
+            --card-bg: #14161c;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --warning-bg: rgba(230, 46, 46, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            /* Background Glow */
+            background-image: radial-gradient(circle at 20% 20%, rgba(46, 184, 230, 0.1) 0%, transparent 40%),
+                              radial-gradient(circle at 80% 80%, rgba(230, 46, 46, 0.1) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top Border Gradient */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Alert Box Style */
+        .alert-box {
+            background-color: var(--warning-bg);
+            border: 1px solid var(--primary-red);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .alert-title {
+            color: var(--primary-red);
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            font-size: 22px;
+            margin-top: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #d0d0d0;
+            line-height: 1.6;
+        }
+
+        li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-size: 12px;
+            top: 5px;
+        }
+
+        strong {
+            color: white;
+        }
+
+        .footer-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-blue);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h1>Refund Policy</h1>
+            
+            <div class="alert-box">
+                <span class="alert-title">⚠️ Strict No-Refund Policy</span>
+                <p style="color: white; margin: 0;">All tips, donations, and monetary support sent through xdfun are <strong>FINAL and NON-REFUNDABLE</strong>.</p>
+            </div>
+
+            <h2>Acknowledgement</h2>
+            <p>By using this service to send a tip, you acknowledge and agree that:</p>
+            <ul>
+                <li>You are the rightful owner of the funds being sent.</li>
+                <li>You are not receiving any goods, services, or perks in exchange for this tip.</li>
+                <li>The tip is a voluntary gesture of appreciation.</li>
+            </ul>
+
+            <h2>Why No Refunds?</h2>
+            <p>xdfun facilitates real-time alerts. Once a tip is sent, the transaction fees are paid to the gateway, and the alert appears on the stream instantly. Due to the digital, irrevocable nature of this service, we cannot offer cancellations.</p>
+
+            <h2>Chargeback Consequences</h2>
+            <p>Unauthorized chargebacks or payment disputes are strictly prohibited. If you initiate a chargeback without a valid legal basis, xdfun reserves the right to:</p>
+            <ul>
+                <li><strong>Permanently Ban</strong> your account and IP address.</li>
+                <li>Blacklist your details.</li>
+                <li>Report the fraudulent activity to relevant financial authorities.</li>
+            </ul>
+
+            <a href="index.html" class="footer-link">← Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>

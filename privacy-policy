@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - StreamTipz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Gaming Theme Colors */
+            --primary-red: #e62e2e;
+            --primary-blue: #2eb8e6;
+            --bg-black: #0a0b10;
+            --card-bg: #14161c;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            /* Background Glow */
+            background-image: radial-gradient(circle at 20% 20%, rgba(46, 184, 230, 0.1) 0%, transparent 40%),
+                              radial-gradient(circle at 80% 80%, rgba(230, 46, 46, 0.1) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top Border Gradient */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            font-size: 22px;
+            margin-top: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #d0d0d0;
+        }
+
+        li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-size: 12px;
+            top: 4px;
+        }
+
+        strong {
+            color: white;
+        }
+
+        .footer-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-blue);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h1>Privacy Policy</h1>
+            <p style="text-align: center; color: white;">Your privacy is non-negotiable.</p>
+            <p>At <strong>StreamTipz</strong> (accessible from <a href="https://streamtipz.in" style="color:var(--primary-blue); text-decoration:none;">https://streamtipz.in</a>), we are committed to protecting the personal information of our creators and their supporters.</p>
+
+            <h2>Data We Collect</h2>
+            <ul>
+                <li><strong>Identity Data:</strong> Name and Email Address (required for account creation).</li>
+                <li><strong>Financial Data:</strong> UPI ID (strictly for processing payouts). We do not store credit card numbers directly.</li>
+                <li><strong>Transaction Data:</strong> Amounts, timestamps, and messages associated with tips.</li>
+            </ul>
+
+            <h2>How We Use Your Data</h2>
+            <p>We use the information strictly to:</p>
+            <ul>
+                <li>Facilitate the transfer of funds from supporter to creator.</li>
+                <li>Generate real-time alerts for your live stream.</li>
+                <li>Detect and prevent fraudulent transactions.</li>
+                <li>Comply with legal and regulatory obligations.</li>
+            </ul>
+
+            <h2>Data Security & Sharing</h2>
+            <p>We use industry-standard encryption (SSL) to protect your data in transit. We <strong>never</strong> sell your personal data to advertisers or third parties.</p>
+            <p>Data is only shared with payment gateways as necessary to complete a transaction.</p>
+
+            <a href="index.html" class="footer-link">← Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>

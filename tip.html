@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support xdfunYT</title>
+    <title>Send a Tip - xdfunYT</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Theme Colors */
             --primary-red: #ff0040;
             --primary-blue: #00bcd4;
             --bg-black: #050505;
@@ -25,9 +26,9 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* Background Glow Effect */
+            /* Background Glow */
             background-image: radial-gradient(circle at 20% 20%, rgba(46, 184, 230, 0.15) 0%, transparent 40%),
-                              radial-gradient(circle at 80% 80%, rgba(230, 46, 46, 0.15) 0%, transparent 40%);
+                              radial-gradient(circle at 80% 80%, rgba(255, 0, 64, 0.15) 0%, transparent 40%);
         }
 
         .container {
@@ -36,56 +37,55 @@
             padding: 20px;
         }
 
-        /* Profile Section */
+        /* Profile Header */
         .profile-section {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .avatar-container {
-            position: relative;
-            width: 100px;
-            height: 100px;
+            width: 120px;
             margin: 0 auto 15px;
+            position: relative;
         }
         .avatar {
             width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary-red);
-            box-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 0 15px rgba(0, 188, 212, 0.5));
         }
         .username {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
             margin: 0;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(90deg, #fff, var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .subtitle {
             color: var(--text-gray);
             font-size: 14px;
             margin-top: 5px;
         }
-        .heart { color: var(--primary-blue); }
+        .heart { color: var(--primary-red); }
 
-        /* The Main Card */
+        /* The Form Card */
         .card {
             background-color: var(--card-bg);
             border-radius: 20px;
             padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255, 0, 64, 0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
             overflow: hidden;
         }
         
-        /* Glowing border effect top/bottom */
+        /* Top Border Gradient */
         .card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
         }
 
         label {
@@ -107,7 +107,7 @@
             color: white;
             font-family: inherit;
             font-size: 15px;
-            box-sizing: border-box; /* Fixes padding issues */
+            box-sizing: border-box;
             transition: 0.3s;
         }
 
@@ -115,17 +115,14 @@
             outline: none;
             border-color: var(--primary-blue);
             background-color: #202025;
-            box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.15);
         }
 
-        /* Amount Section & Presets */
-        .amount-container {
-            position: relative;
-        }
+        /* Amount & Presets */
+        .amount-container { position: relative; }
         .currency-symbol {
             position: absolute;
-            left: 15px;
-            top: 15px;
+            left: 15px; top: 15px;
             color: var(--text-gray);
             font-weight: bold;
         }
@@ -133,11 +130,13 @@
 
         .presets {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-top: 10px;
+            flex-wrap: wrap;
         }
         .preset-btn {
             flex: 1;
+            min-width: 50px;
             background: rgba(0, 188, 212, 0.1);
             border: 1px solid var(--primary-blue);
             color: var(--primary-blue);
@@ -145,18 +144,16 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 13px;
             transition: 0.2s;
         }
         .preset-btn:hover {
             background: var(--primary-blue);
-            color: black;
+            color: #000;
         }
 
         /* Message Box */
-        textarea {
-            resize: none;
-            height: 100px;
-        }
+        textarea { resize: none; height: 100px; }
         .char-counter {
             text-align: right;
             font-size: 11px;
@@ -164,12 +161,12 @@
             margin-top: 5px;
         }
 
-        /* Main Button */
+        /* Donate Button */
         .donate-btn {
             width: 100%;
             margin-top: 25px;
             padding: 15px;
-            background: linear-gradient(45deg, #ff0040, #ff4000);
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
             border: none;
             border-radius: 12px;
             color: white;
@@ -177,14 +174,17 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 5px 20px rgba(255, 0, 64, 0.4);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
         .donate-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 0, 64, 0.6);
+            box-shadow: 0 8px 25px rgba(0, 188, 212, 0.4);
         }
-        .donate-btn:active { transform: translateY(0); }
-
+        .donate-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
     </style>
 </head>
 <body>
@@ -195,7 +195,7 @@
                 <img src="https://xdfun.in/assets/logo.svg" alt="xdfunYT Logo" class="avatar">
             </div>
             <h1 class="username">xdfunYT</h1>
-            <p class="subtitle">Thanks for supporting xdfun! <span class="heart">♥</span></p>
+            <p class="subtitle">Thanks for supporting the stream! <span class="heart">♥</span></p>
         </div>
 
         <div class="card">
@@ -207,7 +207,6 @@
             </div>
 
             <div class="presets">
-                <button class="preset-btn" onclick="setAmount(10)">₹10</button>
                 <button class="preset-btn" onclick="setAmount(20)">₹20</button>
                 <button class="preset-btn" onclick="setAmount(50)">₹50</button>
                 <button class="preset-btn" onclick="setAmount(100)">₹100</button>
@@ -219,13 +218,13 @@
             <input type="text" id="name" placeholder="Display Name">
 
             <label>Email Address</label>
-            <input type="email" id="email" placeholder="your@email.com">
+            <input type="email" id="email" placeholder="receipts@email.com">
 
             <label>Message</label>
-            <textarea id="message" maxlength="150" placeholder="Say something to xdfun." oninput="updateCounter()"></textarea>
+            <textarea id="message" maxlength="150" placeholder="Say something nice..." oninput="updateCounter()"></textarea>
             <div class="char-counter" id="char-count">0/150 chars</div>
 
-            <button class="donate-btn" onclick="payNow()">Send Tip</button>
+            <button class="donate-btn" onclick="payNow()">Send Support ♥</button>
         </div>
     </div>
 
@@ -236,33 +235,29 @@
         //  👇👇 CONFIGURATION - EDIT THIS 👇👇
         // ============================================
         
-        // 1. Paste your Render URL here (No slash at the end)
+        // 1. YOUR RENDER URL (No slash at the end)
         const BACKEND_URL = "https://xdtip-backend.onrender.com"; 
-        
-        // 2. Paste your Razorpay Key ID here
+
+        // 2. YOUR RAZORPAY KEY ID
         const RAZORPAY_KEY_ID = "rzp_test_RyYldiW08v1Ywl";
 
         // ============================================
 
-        // Helper: Set amount when preset buttons are clicked
         function setAmount(val) {
             document.getElementById('amount').value = val;
         }
 
-        // Helper: Update character counter
         function updateCounter() {
             const len = document.getElementById('message').value.length;
             document.getElementById('char-count').innerText = `${len}/150 chars`;
         }
 
-        // Main Payment Function
         async function payNow() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const amount = document.getElementById('amount').value;
             const message = document.getElementById('message').value;
 
-            // Simple validation
             if (!amount || !name || !email) {
                 alert("Please fill in Name, Email and Amount!");
                 return;
@@ -306,7 +301,7 @@
                                 message: message
                             })
                         });
-                        alert("Thanks For Your Tip");
+                        alert("Donation Sent! Look at the stream!");
                         btn.innerText = "Sent!";
                     },
                     "modal": {
@@ -315,13 +310,8 @@
                             btn.disabled = false;
                         }
                     },
-                    "prefill": {
-                        "name": name,
-                        "email": email
-                    },
-                    "theme": {
-                        "color": "#ff0040"
-                    }
+                    "prefill": { "name": name, "email": email },
+                    "theme": { "color": "#ff0040" }
                 };
                 
                 const rzp1 = new Razorpay(options);
@@ -329,7 +319,7 @@
 
             } catch (error) {
                 console.error(error);
-                alert("Something went wrong. Check console or Backend URL.");
+                alert("Connection Error. Check your Backend URL.");
                 btn.innerText = originalText;
                 btn.disabled = false;
             }

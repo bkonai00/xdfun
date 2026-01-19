@@ -13,31 +13,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <meta name="theme-color" content="#000000" />
-  <!-- Audio player: place once on each page (e.g., in footer before </body>) -->
-<div class="audio-player" id="siteAudioPlayer" aria-label="Background audio player">
-  <audio id="siteAudio" preload="none" src="assets/antham.mp3" loop></audio>
-
-  <button id="audioToggle" class="audio-btn" aria-pressed="false" aria-label="Play background music">
-    <span id="audioIcon">▶</span>
-  </button>
-
-  <div class="audio-ui" aria-hidden="false">
-    <input id="audioProgress" class="audio-progress" type="range" min="0" max="100" value="0" aria-label="Audio progress" />
-    <button id="audioMute" class="audio-btn audio-mute" aria-pressed="false" aria-label="Mute music">🔊</button>
-  </div>
-</div>
 </head>
 <body class="dark">
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo-link" href="/index/" aria-label="xdfun homepage">
+      <a class="logo-link" href="/" aria-label="xdfun homepage">
         <img src="assets/logo.svg" alt="xdfun logo" class="logo" />
         <span class="brand">xdfun</span>
       </a>
       <nav class="main-nav" aria-label="Primary">
         <ul>
-          <li><a href="/index/#about">About</a></li>
-          <li><a href="/index/#showcase">Content</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#showcase">Content</a></li>
           <li><a href="/monetization/">Support</a></li>
           <li><a href="/contact/" class="cta">Let's Work</a></li>
         </ul>
@@ -50,7 +37,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero" id="home" aria-labelledby="hero-heading">
       <div class="hero-background" aria-hidden="true"></div>
       <div class="container hero-inner">
@@ -69,7 +55,7 @@
 
         <div class="hero-right">
           <div class="profile-card">
-            <img src="assets/pic.jpg" alt="xdfun logo" style="width:150px; height:auto;" alt="Bikram Konai — xdfun" class="profile-photo" loading="lazy" />
+            <img src="assets/pic.jpg" style="width:150px; height:auto;" alt="Bikram Konai — xdfun" class="profile-photo" loading="lazy" />
             <div class="profile-meta">
               <h3>Bikram Konai</h3>
               <p>Creator • Livestreamer • Tech Reactions</p>
@@ -79,7 +65,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="about container" id="about" aria-labelledby="about-heading">
       <div class="about-grid">
         <div class="about-text">
@@ -102,7 +87,6 @@
       </div>
     </section>
 
-    <!-- CONTENT SHOWCASE -->
     <section class="showcase container" id="showcase" aria-labelledby="showcase-heading">
       <h2 id="showcase-heading">Content Showcase</h2>
       <p class="muted">Six core categories — click a card to Explore or Watch Now.</p>
@@ -164,7 +148,6 @@
       </div>
     </section>
 
-    <!-- COMMUNITY / SOCIAL -->
     <section class="community container" id="community" aria-labelledby="community-heading">
       <h2 id="community-heading">Join the Community</h2>
       <p class="muted">Live chat, Discord events, and exclusive behind-the-scenes.</p>
@@ -176,7 +159,7 @@
         <a class="social" href="https://www.instagram.com/cc_xdfun" aria-label="Instagram" target="_blank">Instagram</a>
         <a class="social" href="https://twitter.com/xdfunyt" aria-label="X" target="_blank">X</a>
         <a class="social" href="https://wa.me/qr/YXFKDUZA7NEXN1" aria-label="Whatsapp" target="_blank">Whatsapp</a>
-	<a class="social" href="https://www.facebook.com/share/1FvPXiCSuG/" aria-label="Facebook" target="_blank">Facebook</a>
+        <a class="social" href="https://www.facebook.com/share/1FvPXiCSuG/" aria-label="Facebook" target="_blank">Facebook</a>
       </div>
     </section>
   </main>
@@ -200,11 +183,25 @@
                 <div class="footer-meta">
                     <strong>xdfun</strong>
                     <span>© 2025 Bikram Konai</span>
-                    <div style="margin-top:10px;"><a href="../index/">Back home</a></div>
+                    <div style="margin-top:10px;"><a href="/">Back home</a></div>
                 </div>
             </div>
         </div>
     </footer>
+
+  <div class="audio-player" id="siteAudioPlayer" aria-label="Background audio player">
+    <audio id="siteAudio" preload="none" src="assets/antham.mp3" loop></audio>
+
+    <button id="audioToggle" class="audio-btn" aria-pressed="false" aria-label="Play background music">
+      <span id="audioIcon">▶</span>
+    </button>
+
+    <div class="audio-ui" aria-hidden="false">
+      <input id="audioProgress" class="audio-progress" type="range" min="0" max="100" value="0" aria-label="Audio progress" />
+      <button id="audioMute" class="audio-btn audio-mute" aria-pressed="false" aria-label="Mute music">🔊</button>
+    </div>
+  </div>
+
   <script src="script.js" defer></script>
 </body>
 </html>

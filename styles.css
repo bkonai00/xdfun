@@ -202,10 +202,6 @@ body{
 .social{display:inline-block;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.02);color:var(--muted);text-decoration:none;transition:all .18s}
 .social:hover{color:var(--white);transform:translateY(-4px)}
 
-/* Footer */
-.site-footer{border-top:1px solid rgba(255,255,255,0.02);padding:18px 0;margin-top:40px}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
-
 /* Helper */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
@@ -248,11 +244,11 @@ body{
   .hero{padding:40px 0}
   .container{padding:20px}
 }
-/* --- Professional Footer Styles --- */
+/* --- Professional Footer Styles (Optimized) --- */
 .site-footer {
-  background-color: #050505; /* Slightly darker than main bg for contrast */
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 4rem 0 2rem;
+  background-color: #050505; /* Deep black for contrast against the body */
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 60px 0 30px; /* More breathing room */
   margin-top: auto;
   font-family: 'Inter', sans-serif;
 }
@@ -260,21 +256,27 @@ body{
 .footer-top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr; /* Brand takes more space */
-  gap: 3rem;
-  margin-bottom: 3rem;
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
 /* Brand Column */
+.footer-brand{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .footer-logo-link {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .footer-logo {
-  width: 40px; /* Kept subtle */
+  width: 40px;
   height: auto;
 }
 
@@ -282,23 +284,24 @@ body{
   font-family: 'Orbitron', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--white);
   letter-spacing: 1px;
 }
 
 .footer-tagline {
-  color: #a1a1aa; /* Muted gray */
-  font-size: 0.9rem;
+  color: var(--muted);
+  font-size: 0.95rem;
   line-height: 1.6;
+  max-width: 300px;
 }
 
 /* Headings for Columns */
 .footer-nav h4,
 .footer-legal h4 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  color: #fff;
-  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -313,27 +316,29 @@ body{
 
 .footer-nav li,
 .footer-legal li {
-  margin-bottom: 0.8rem;
+  margin-bottom: 12px;
 }
 
 .site-footer a {
-  color: #a1a1aa;
+  color: var(--muted);
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.3s ease;
+  transition: all 0.2s var(--ease);
+  display: inline-block;
 }
 
+/* Hover Effect: Turns White and slides slightly */
 .site-footer a:hover {
-  color: #fff; /* Or your site's neon accent color */
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  color: var(--neon-blue);
+  transform: translateX(4px);
+  text-shadow: 0 0 10px rgba(0, 209, 255, 0.4);
 }
 
 /* Divider Line */
 .footer-divider {
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin-bottom: 2rem;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  margin-bottom: 30px;
 }
 
 /* Bottom Bar */
@@ -342,30 +347,39 @@ body{
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 16px;
   font-size: 0.85rem;
-  color: #52525b; /* Darker gray for less importance */
+  color: #52525b; /* Darker gray for less visual weight */
 }
 
 .back-to-top a {
   font-weight: 600;
-  color: #fff;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.back-to-top a:hover {
+  color: var(--neon-red);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
+/* Mobile Responsiveness - Matches your 680px breakpoint */
+@media (max-width: 680px) {
+  .site-footer {
+    padding: 40px 0 20px;
+  }
+
   .footer-top {
     grid-template-columns: 1fr; /* Stack columns on mobile */
-    gap: 2rem;
-    text-align: center;
+    gap: 32px;
+    text-align: left; /* Keep left alignment for cleaner mobile look */
   }
   
-  .footer-logo-link {
-    justify-content: center;
+  .footer-tagline {
+    max-width: 100%;
   }
   
   .footer-bottom {
-    flex-direction: column;
+    flex-direction: column-reverse; /* Put Copyright below "Back to top" */
     text-align: center;
+    gap: 20px;
   }
 }

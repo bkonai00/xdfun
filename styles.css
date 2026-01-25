@@ -248,3 +248,124 @@ body{
   .hero{padding:40px 0}
   .container{padding:20px}
 }
+/* --- Professional Footer Styles --- */
+.site-footer {
+  background-color: #050505; /* Slightly darker than main bg for contrast */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4rem 0 2rem;
+  margin-top: auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* Brand takes more space */
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* Brand Column */
+.footer-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.footer-logo {
+  width: 40px; /* Kept subtle */
+  height: auto;
+}
+
+.footer-brand .brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.footer-tagline {
+  color: #a1a1aa; /* Muted gray */
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Headings for Columns */
+.footer-nav h4,
+.footer-legal h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Link Lists */
+.footer-nav ul,
+.footer-legal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li,
+.footer-legal li {
+  margin-bottom: 0.8rem;
+}
+
+.site-footer a {
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+  color: #fff; /* Or your site's neon accent color */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Divider Line */
+.footer-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #52525b; /* Darker gray for less importance */
+}
+
+.back-to-top a {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr; /* Stack columns on mobile */
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .footer-logo-link {
+    justify-content: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,245 +1,230 @@
+"use strict";
+
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ==========================================
-    // 1. Mobile Hamburger Menu
-    // ==========================================
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-links a');
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-            hamburger.setAttribute('aria-expanded', !isExpanded);
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-            });
-        });
-    }
-
-    // ==========================================
-    // 2. Floating Anthem Button (Audio Player)
-    // ==========================================
-    const musicBtn = document.getElementById('music-btn');
-    const anthem = document.getElementById('anthem');
-    
-    if (musicBtn && anthem) {
-        const icon = musicBtn.querySelector('i');
-        let isPlaying = false;
-        
-        // Set volume to a reasonable level
-        anthem.volume = 0.3; 
-
-        musicBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                anthem.pause();
-                icon.classList.remove('fa-pause');
-                icon.classList.add('fa-play');
-                musicBtn.classList.remove('playing');
-                musicBtn.setAttribute('aria-pressed', 'false');
-            } else {
-                anthem.play().then(() => {
-                    icon.classList.remove('fa-play');
-                    icon.classList.add('fa-pause');
-                    musicBtn.classList.add('playing');
-                    musicBtn.setAttribute('aria-pressed', 'true');
-                }).catch(error => {
-                    console.error("Audio playback prevented by browser policy:", error);
-                    alert("Please interact with the page first to allow audio playback.");
-                });
-            }
-            isPlaying = !isPlaying;
-        });
-    }
-
-    // ==========================================
-    // 3. Scroll Animations & Observers
-    // ==========================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                
-                // Trigger stats counter if it's the stats section
-                if (entry.target.id === 'stats' && !entry.target.classList.contains('counted')) {
-                    runCounters();
-                    entry.target.classList.add('counted');
-                }
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
-
-    // ==========================================
-    // 4. Stats Counter Animation
-    // ==========================================
-    function runCounters() {
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200; 
-
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText.replace(/,/g, '');
-                const inc = target / speed;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc).toLocaleString();
-                    setTimeout(updateCount, 15);
-                } else {
-                    counter.innerText = target.toLocaleString() + (target > 1000 ? '+' : '');
-                }
-            };
-            updateCount();
-        });
-    }
-
-    // ==========================================
-    // 5. Formspree AJAX Submission
-    // ==========================================
-    const form = document.getElementById("contact-form");
-    const formStatus = document.getElementById("form-status");
-    const submitBtn = document.getElementById("form-submit-btn");
-
-    if (form) {
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault(); // Stop standard redirect
-            
-            // UI Loading State
-            submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
-            submitBtn.disabled = true;
-            formStatus.style.display = "none";
-
-            const data = new FormData(event.target);
-
-            try {
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    formStatus.style.display = "block";
-                    formStatus.style.backgroundColor = "rgba(0, 255, 170, 0.1)"; // Neon green tint
-                    formStatus.style.color = "#00ffaa";
-                    formStatus.style.border = "1px solid #00ffaa";
-                    formStatus.innerHTML = "Message transmitted successfully! I will get back to you soon.";
-                    form.reset();
-                } else {
-                    const responseData = await response.json();
-                    formStatus.style.display = "block";
-                    formStatus.style.backgroundColor = "rgba(255, 0, 85, 0.1)"; // Neon red tint
-                    formStatus.style.color = "#ff0055";
-                    formStatus.style.border = "1px solid #ff0055";
-                    
-                    if (Object.hasOwn(responseData, 'errors')) {
-                        formStatus.innerHTML = responseData["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        formStatus.innerHTML = "Oops! There was a problem transmitting your message.";
-                    }
-                }
-            } catch (error) {
-                formStatus.style.display = "block";
-                formStatus.style.backgroundColor = "rgba(255, 0, 85, 0.1)";
-                formStatus.style.color = "#ff0055";
-                formStatus.style.border = "1px solid #ff0055";
-                formStatus.innerHTML = "Oops! A network error occurred.";
-            }
-
-            // Reset Button State
-            submitBtn.innerHTML = 'Transmit Message <i class="fa-solid fa-paper-plane"></i>';
-            submitBtn.disabled = false;
-        });
-    }
-
-    // ==========================================
-    // 6. FAQ Accordion Logic
-    // ==========================================
-    const accordions = document.querySelectorAll('.accordion-header');
-    
-    accordions.forEach(acc => {
-        acc.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const panel = this.nextElementSibling;
-            const icon = this.querySelector('i');
-            
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-            
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-                icon.classList.remove('fa-minus');
-                icon.classList.add('fa-plus');
-            } else {
-                // Auto-close other panels
-                accordions.forEach(otherAcc => {
-                    if (otherAcc !== this) {
-                        otherAcc.classList.remove('active');
-                        otherAcc.setAttribute('aria-expanded', 'false');
-                        otherAcc.nextElementSibling.style.maxHeight = null;
-                        const otherIcon = otherAcc.querySelector('i');
-                        otherIcon.classList.remove('fa-minus');
-                        otherIcon.classList.add('fa-plus');
-                    }
-                });
-                panel.style.maxHeight = panel.scrollHeight + "px";
-                icon.classList.remove('fa-plus');
-                icon.classList.add('fa-minus');
-            }
-        });
-    });
-
-    // ==========================================
-    // 7. Utilities (Preloader, Year, Smooth Scroll)
-    // ==========================================
-    
-    // Set current year in footer
-    const yearElement = document.getElementById('current-year');
-    if (yearElement) yearElement.textContent = new Date().getFullYear();
-
-    // Remove preloader on load
+    /* ==========================================
+       1. Preloader Logic
+    ========================================== */
+    const preloader = document.getElementById('preloader');
     window.addEventListener('load', () => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
+        setTimeout(() => {
             preloader.style.opacity = '0';
             setTimeout(() => {
                 preloader.style.display = 'none';
             }, 500);
+        }, 800); // Slight delay to ensure smooth entry
+    });
+
+    /* ==========================================
+       2. Custom Cursor tracking
+    ========================================== */
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+    
+    // Only init if not on a touch device
+    if (window.matchMedia("(pointer: fine)").matches) {
+        let posX = 0, posY = 0;
+        let mouseX = 0, mouseY = 0;
+
+        // Follower lerp animation
+        setInterval(() => {
+            posX += (mouseX - posX) / 6;
+            posY += (mouseY - posY) / 6;
+            follower.style.left = `${posX}px`;
+            follower.style.top = `${posY}px`;
+        }, 16);
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = `${mouseX}px`;
+            cursor.style.top = `${mouseY}px`;
+        });
+
+        // Add hover states to interactable elements
+        const interactables = document.querySelectorAll('a, button, input, textarea, .universe-card');
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+        });
+    }
+
+    /* ==========================================
+       3. Parallax Background Effect
+    ========================================== */
+    const bgCanvas = document.getElementById('bg-canvas');
+    document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        if(bgCanvas) bgCanvas.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    /* ==========================================
+       4. Typing Effect (Hero Section)
+    ========================================== */
+    const typedTextSpan = document.getElementById('typed-text');
+    const words = ["Content Creator", "Pro Gamer", "Tech Enthusiast", "System Admin"];
+    let wordIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentWord = words[wordIdx];
+        if (isDeleting) {
+            typedTextSpan.textContent = currentWord.substring(0, charIdx - 1);
+            charIdx--;
+        } else {
+            typedTextSpan.textContent = currentWord.substring(0, charIdx + 1);
+            charIdx++;
+        }
+
+        let typeSpeed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIdx === currentWord.length) {
+            typeSpeed = 2000; // Pause at end
+            isDeleting = true;
+        } else if (isDeleting && charIdx === 0) {
+            isDeleting = false;
+            wordIdx = (wordIdx + 1) % words.length;
+            typeSpeed = 500; // Pause before new word
+        }
+        setTimeout(typeEffect, typeSpeed);
+    }
+    if (typedTextSpan) setTimeout(typeEffect, 1500);
+
+    /* ==========================================
+       5. Scroll Reveal & Header State
+    ========================================== */
+    const header = document.querySelector('.glass-header');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
     });
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Offset for fixed header
-                    behavior: 'smooth'
-                });
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
             }
         });
-    });
+    }, { threshold: 0.15 });
+    
+    revealElements.forEach(el => revealObserver.observe(el));
 
+    /* ==========================================
+       6. Stats Counter
+    ========================================== */
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.counter');
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const updateCount = () => {
+                        const count = +counter.innerText.replace(/,/g, '');
+                        const inc = target / 200; // Speed divider
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc).toLocaleString();
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target.toLocaleString() + '+';
+                        }
+                    };
+                    updateCount();
+                });
+                observer.unobserve(entry.target); // Run once
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    const statsSection = document.getElementById('stats');
+    if (statsSection) statsObserver.observe(statsSection);
+
+    /* ==========================================
+       7. Mobile Navigation Toggle
+    ========================================== */
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navList = document.querySelector('.nav-list');
+    
+    if(mobileToggle && navList) {
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navList.classList.toggle('active');
+        });
+
+        // Close when clicking a link
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navList.classList.remove('active');
+            });
+        });
+    }
+
+    /* ==========================================
+       8. Audio Player Controller
+    ========================================== */
+    const musicBtn = document.getElementById('music-btn');
+    const anthem = document.getElementById('anthem');
+    
+    if (musicBtn && anthem) {
+        anthem.volume = 0.2; // Safe volume
+        musicBtn.addEventListener('click', () => {
+            if (anthem.paused) {
+                anthem.play().then(() => {
+                    musicBtn.classList.add('playing');
+                }).catch(e => console.log("Audio play blocked by browser."));
+            } else {
+                anthem.pause();
+                musicBtn.classList.remove('playing');
+            }
+        });
+    }
+
+    /* ==========================================
+       9. AJAX Form Submission (Formspree)
+    ========================================== */
+    const contactForm = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> TRANSMITTING...';
+            submitBtn.disabled = true;
+
+            const data = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    formFeedback.innerHTML = "<span class='neon-text'>Transmission Successful. Standby for reply.</span>";
+                    contactForm.reset();
+                } else {
+                    formFeedback.innerHTML = "<span style='color: var(--neon-pink);'>Error in transmission protocols.</span>";
+                }
+            } catch (error) {
+                formFeedback.innerHTML = "<span style='color: var(--neon-pink);'>Network failure. Try again.</span>";
+            }
+
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+            setTimeout(() => { formFeedback.innerHTML = ''; }, 5000);
+        });
+    }
+
+    /* Set footer year */
+    document.getElementById('year').textContent = new Date().getFullYear();
 });

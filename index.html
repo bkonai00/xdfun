@@ -17,7 +17,88 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* Floating Anthem Button */
+
+.floating-music-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:65px;
+    height:65px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:1.3rem;
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #29b6ff,
+        #7c3aed
+    );
+
+    box-shadow:
+        0 0 20px rgba(41,182,255,.4),
+        0 0 40px rgba(124,58,237,.3);
+
+    transition:.3s;
+}
+
+.floating-music-btn:hover{
+    transform:scale(1.08);
+}
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.hamburger span{
+    width:28px;
+    height:3px;
+    background:#fff;
+    border-radius:50px;
+}
+
+@media(max-width:992px){
+
+    .hamburger{
+        display:flex;
+    }
+
+    .nav-links{
+        position:fixed;
+        top:85px;
+        right:-100%;
+        width:280px;
+        height:calc(100vh - 85px);
+
+        background:#050816;
+
+        flex-direction:column;
+        padding:40px;
+
+        transition:.35s;
+        z-index:999;
+    }
+
+    .nav-links.active{
+        right:0;
+    }
+}
+
+</style>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -91,14 +172,6 @@ target="_blank"
 class="btn secondary">
 Support Creator
 </a>
-
-<button id="musicBtn" class="btn music">
-
-<i class="fas fa-play"></i>
-
-Play Anthem
-
-</button>
 
 </div>
 
@@ -301,6 +374,25 @@ All Rights Reserved.
 </footer>
 
 <script src="js/main.js"></script>
+
+  <button id="musicBtn" class="floating-music-btn">
+    <i class="fas fa-play"></i>
+</button>
+  <script>
+
+const hamburger =
+document.getElementById("hamburger");
+
+const navLinks =
+document.getElementById("navLinks");
+
+hamburger.addEventListener("click",()=>{
+
+    navLinks.classList.toggle("active");
+
+});
+
+</script>
 
 </body>
 </html>

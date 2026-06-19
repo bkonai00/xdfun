@@ -514,6 +514,14 @@ footer p{
     width:320px;
   }
 
+  .hero-image img{
+  transition:.4s;
+}
+
+.hero-image img:hover{
+  transform:scale(1.03);
+}
+
   section h2{
     font-size:2rem;
   }
@@ -529,7 +537,8 @@ footer p{
     width:280px;
     height:calc(100vh - 90px);
 
-    background:#050816;
+    background:rgba(5,8,22,.95);
+    backdrop-filter:blur(20px);
 
     flex-direction:column;
     gap:25px;
@@ -572,6 +581,11 @@ footer p{
     height:48px;
   }
 }
+
+#recent-content{
+  text-align:center;
+}
+  
 </style>
 </head>
 
@@ -580,9 +594,9 @@ footer p{
 <div id="particles"></div>
 
 <nav>
-  <div class="logo">
-    <img src="assets/logo.svg" alt="XDFUN">
-  </div>
+  <a href="#" class="logo">
+  <img src="assets/logo.svg" alt="XDFUN">
+</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#content">Content</a></li>
@@ -714,7 +728,7 @@ footer p{
 
 <footer>
   <img src="assets/logo.svg" alt="XDFUN Logo">
-  <p>© 2026 XDFUN. All Rights Reserved.</p>
+  <p>© XDFUN. All Rights Reserved.</p>
 </footer>
 
 <button id="musicBtn" class="floating-music-btn">

@@ -1,32 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" class="dark-theme">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <title>XDFUN | Bikram Konai - Content Creator, Gamer & Tech Enthusiast</title>
-    <meta name="description" content="Welcome to XDFUN. I am Bikram Konai, a Content Creator blending high-energy gaming, tech reviews, and vlogs into engaging digital content. Join the community!">
-    <meta name="keywords" content="XDFUN, Bikram Konai, Gaming, Tech Reviews, AI Content, Vlogs, Livestreams, Content Creator, India">
-    <meta name="author" content="Bikram Konai">
-    <meta name="robots" content="index, follow">
+    <title>XDFUN | Bikram Konai - Official Hub</title>
+    <meta name="description" content="The official digital hub for Bikram Konai (XDFUN). Content Creator, Gamer, and Tech Enthusiast.">
     <meta name="theme-color" content="#0b0c10">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://xdfun.in/">
-    <meta property="og:title" content="XDFUN | Bikram Konai">
-    <meta property="og:description" content="Gaming, Tech, and Vlogs. Level up with XDFUN!">
-    <meta property="og:image" content="assets/pic.jpg">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://xdfun.in/">
-    <meta property="twitter:title" content="XDFUN | Bikram Konai">
-    <meta property="twitter:description" content="Gaming, Tech, and Vlogs. Level up with XDFUN!">
-    <meta property="twitter:image" content="assets/pic.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css">
@@ -38,744 +23,397 @@
       "name": "Bikram Konai",
       "alternateName": "XDFUN",
       "url": "https://xdfun.in",
-      "image": "https://xdfun.in/assets/pic.jpg",
       "sameAs": [
         "https://www.youtube.com/@xdfunYT",
         "https://kick.com/xdfun",
         "https://www.instagram.com/cc_xdfun",
         "https://discord.gg/rCpyBHTQk2"
       ],
-      "jobTitle": "Content Creator",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "XDFUN"
-      }
+      "knowsAbout": ["Video Games", "Technology", "Live Streaming", "Artificial Intelligence"]
     }
     </script>
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-follower" id="cursor-follower"></div>
 
-    <div id="preloader" aria-hidden="true">
-        <div class="loader-content">
-            <img src="assets/logo.svg" alt="Loading XDFUN" class="loader-logo">
-            <div class="progress-bar">
-                <div class="progress"></div>
-            </div>
-            <p class="loading-text rgb-text">INITIALIZING...</p>
+    <div id="preloader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
         </div>
+        <span class="loader-text neon-text">SYSTEM BOOT...</span>
     </div>
 
-    <div class="animated-bg" aria-hidden="true">
+    <div class="bg-canvas" id="bg-canvas">
         <div class="glow-orb orb-1"></div>
         <div class="glow-orb orb-2"></div>
-        <div class="grid-overlay"></div>
+        <div class="glow-orb orb-3"></div>
+        <div class="hex-grid"></div>
     </div>
 
-    <aside class="floating-socials" aria-label="Social Media Links">
-        <div class="social-container">
-            <a href="https://www.youtube.com/@xdfunYT" target="_blank" rel="noopener noreferrer" aria-label="Visit YouTube">
-                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-            </a>
-            <a href="https://kick.com/xdfun" target="_blank" rel="noopener noreferrer" aria-label="Visit Kick">
-                <i class="fa-brands fa-kickstarter-k" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.instagram.com/cc_xdfun" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram">
-                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-            </a>
-            <a href="https://discord.gg/rCpyBHTQk2" target="_blank" rel="noopener noreferrer" aria-label="Join Discord">
-                <i class="fa-brands fa-discord" aria-hidden="true"></i>
-            </a>
-        </div>
-    </aside>
+    <nav class="floating-social-nav">
+        <a href="https://www.youtube.com/@xdfunYT" target="_blank" class="social-btn yt"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://kick.com/xdfun" target="_blank" class="social-btn kick"><i class="fa-brands fa-kickstarter-k"></i></a>
+        <a href="https://www.instagram.com/cc_xdfun" target="_blank" class="social-btn ig"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://discord.gg/rCpyBHTQk2" target="_blank" class="social-btn dc"><i class="fa-brands fa-discord"></i></a>
+    </nav>
 
-    <div class="music-player-container">
-        <button id="music-btn" class="floating-music" aria-label="Play or Pause Anthem" aria-pressed="false">
-            <i class="fa-solid fa-play" aria-hidden="true"></i>
+    <div class="audio-controller">
+        <button id="music-btn" class="glass-btn" aria-label="Play Anthem">
+            <span class="music-bars"><span></span><span></span><span></span></span>
+            <i class="fa-solid fa-play play-icon"></i>
         </button>
-        <audio id="anthem" src="assets/anthem.mp3" loop preload="none"></audio>
+        <audio id="anthem" src="assets/anthem.mp3" loop></audio>
     </div>
 
-    <header class="site-header" role="banner">
-        <div class="navbar-container">
-            <nav class="navbar" aria-label="Main Navigation">
-                
-                <a href="#hero" class="brand-logo" aria-label="XDFUN Home">
-                    <img src="assets/logo.svg" alt="XDFUN Logo" width="150" height="50" onerror="this.outerHTML='<span class=\'fallback-logo rgb-text\'>XDFUN</span>';">
-                </a>
-
-                <ul class="nav-links" id="primary-menu" role="menubar">
-                    <li role="none"><a href="#hero" role="menuitem" class="nav-item">Home</a></li>
-                    <li role="none"><a href="#about" role="menuitem" class="nav-item">About</a></li>
-                    <li role="none"><a href="#content" role="menuitem" class="nav-item">Content</a></li>
-                    <li role="none"><a href="#playlists" role="menuitem" class="nav-item">Playlists</a></li>
-                    <li role="none"><a href="#achievements" role="menuitem" class="nav-item">Awards</a></li>
-                    <li role="none"><a href="#faq" role="menuitem" class="nav-item">FAQ</a></li>
-                    <li role="none"><a href="#contact" role="menuitem" class="nav-item">Contact</a></li>
+    <header class="glass-header">
+        <div class="header-container">
+            <a href="#hero" class="brand-logo">
+                <img src="assets/logo.svg" alt="XDFUN" onerror="this.outerHTML='<span class=\'fallback-logo\'>XD<span class=\'neon-text\'>FUN</span></span>';">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link" data-text="Home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-text="About">About</a></li>
+                    <li><a href="#gear" class="nav-link" data-text="Setup">Setup</a></li>
+                    <li><a href="#content" class="nav-link" data-text="Content">Content</a></li>
+                    <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
                 </ul>
-
-                <div class="nav-actions">
-                    <a href="https://xdtip.in/xdfunYT" target="_blank" rel="noopener noreferrer" class="btn btn-neon support-btn">
-                        <i class="fa-solid fa-bolt" aria-hidden="true"></i> Support
-                    </a>
-                    
-                    <button class="hamburger" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle Navigation">
-                        <span class="bar bar-1"></span>
-                        <span class="bar bar-2"></span>
-                        <span class="bar bar-3"></span>
-                    </button>
-                </div>
-
             </nav>
+            <div class="header-actions">
+                <a href="https://xdtip.in/xdfunYT" target="_blank" class="btn btn-support">
+                    <i class="fa-solid fa-bolt"></i> Tip Jar
+                </a>
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main id="main-content" role="main">
-
-        <section id="hero" class="hero-section scroll-animate" aria-labelledby="hero-heading">
-            <div class="container hero-container">
-                <div class="hero-text-content">
-                    <p class="hero-greeting rgb-text">SYSTEM ONLINE // HI, I'M BIKRAM KONAI</p>
-                    <h1 id="hero-heading" class="hero-title neon-text">WELCOME TO<br>XDFUN</h1>
+    <main id="main-content">
+        <section id="hero" class="hero-section glass-panel-container section-pad">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="status-badge"><span class="pulse-dot"></span> Online & Ready</div>
+                    <h2 class="sub-heading">HI, I'M BIKRAM KONAI</h2>
+                    <h1 class="main-heading glitch-text" data-text="WELCOME TO XDFUN">WELCOME TO XDFUN</h1>
                     
-                    <div class="typing-container">
-                        <span class="tagline">Content Creator • Gamer • Tech Enthusiast</span>
+                    <div class="typing-wrapper">
+                        <span id="typed-text" class="rgb-text"></span><span class="cursor-blink">|</span>
                     </div>
 
-                    <p class="short-bio">
-                        I blend high-energy gaming, in-depth tech reviews, and everyday vlogs into engaging digital content. Join the community and let's level up together.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="https://www.youtube.com/@xdfunYT" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-                            <i class="fa-brands fa-youtube" aria-hidden="true"></i> Subscribe Now
+                    <p class="hero-desc">Blending high-tier gaming, unapologetic tech reviews, and IRL adventures into a singular digital experience. Level up your feed.</p>
+                    
+                    <div class="action-group">
+                        <a href="https://www.youtube.com/@xdfunYT" target="_blank" class="btn btn-primary btn-glow">
+                            <i class="fa-brands fa-youtube"></i> Join the Squad
                         </a>
-                        <a href="#content" class="btn btn-secondary btn-lg">
-                            <i class="fa-solid fa-compass" aria-hidden="true"></i> Explore Content
-                        </a>
+                        <a href="#playlists" class="btn btn-outline">Binge Series</a>
                     </div>
                 </div>
-
-                <div class="hero-visual">
-                    <svg class="hero-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="rgba(0, 229, 255, 0.1)" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.1,-46.3C90.4,-33.5,96.1,-18.1,96.5,-2.6C96.9,12.9,92,28.6,83.5,42.2C75,55.8,62.8,67.3,48.9,75.4C35,83.5,19.4,88.2,3.3,82.8C-12.8,77.4,-28.5,61.9,-42.6,50.1C-56.7,38.3,-69.2,30.2,-77.3,18.3C-85.4,6.4,-89.1,-9.3,-84.5,-22.6C-79.9,-35.9,-67,-46.8,-53.6,-54.6C-40.2,-62.4,-26.3,-67.1,-11.9,-70.7C2.5,-74.3,17,-76.8,30.6,-78.4C44.2,-80,58.3,-80.7,44.7,-76.4Z" transform="translate(100 100)" />
-                    </svg>
-                    <div class="hero-image-wrapper rgb-border">
-                        <img src="assets/pic.jpg" alt="Bikram Konai Studio Setup" width="500" height="500" class="hero-img">
+                
+                <div class="hero-image-container parallax-img">
+                    <div class="img-frame rgb-border">
+                        <img src="assets/pic.jpg" alt="Bikram Konai" class="profile-pic">
+                        <div class="frame-overlay"></div>
                     </div>
+                    <div class="floating-badge badge-1 glass-panel"><i class="fa-solid fa-microchip"></i> Tech Head</div>
+                    <div class="floating-badge badge-2 glass-panel"><i class="fa-solid fa-gamepad"></i> Pro Gamer</div>
                 </div>
-            </div>
-
-            <div class="scroll-indicator" aria-hidden="true">
-                <span class="mouse">
-                    <span class="wheel"></span>
-                </span>
-                <span class="scroll-text">Scroll Down</span>
             </div>
         </section>
 
-        <section id="stats" class="stats-section scroll-animate" aria-label="Channel Statistics">
+        <section id="stats" class="stats-ticker-section">
             <div class="container">
-                <div class="stats-grid">
-                    
-                    <div class="stat-card rgb-border">
-                        <div class="stat-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
-                        <h3 class="counter" data-target="50000">0</h3>
-                        <p class="stat-label">Community Members</p>
-                    </div>
-
-                    <div class="stat-card rgb-border">
-                        <div class="stat-icon"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></div>
-                        <h3 class="counter" data-target="1200">0</h3>
-                        <p class="stat-label">Hours Streamed</p>
-                    </div>
-
-                    <div class="stat-card rgb-border">
-                        <div class="stat-icon"><i class="fa-solid fa-eye" aria-hidden="true"></i></div>
-                        <h3 class="counter" data-target="5000000">0</h3>
-                        <p class="stat-label">Total Views</p>
-                    </div>
-
-                    <div class="stat-card rgb-border">
-                        <div class="stat-icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
-                        <h3 class="counter" data-target="350">0</h3>
-                        <p class="stat-label">Videos Published</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="about-section scroll-animate" aria-labelledby="about-heading">
-            <div class="container">
-                <div class="about-grid">
-                    
-                    <div class="about-visual rgb-border">
-                        <div class="image-overlay"></div>
-                        <img src="assets/pic.jpg" alt="Portrait of Bikram Konai" class="about-img" loading="lazy">
-                        <div class="experience-badge">
-                            <span class="years">5+</span>
-                            <span class="text">Years<br>Creating</span>
+                <div class="stats-grid glass-panel">
+                    <div class="stat-item">
+                        <i class="fa-solid fa-users neon-text"></i>
+                        <div class="stat-info">
+                            <h3 class="counter" data-target="50000">0</h3>
+                            <span>Community</span>
                         </div>
                     </div>
-
-                    <div class="about-content">
-                        <h2 id="about-heading" class="section-title neon-text">
-                            <span class="subtitle">Who am I?</span><br>
-                            About XDFUN
-                        </h2>
-                        
-                        <div class="about-text-blocks">
-                            <p class="lead-text">
-                                Welcome to XDFUN! I'm Bikram Konai, a dedicated Content Creator, Gamer, and Tech Enthusiast. What started as a passion for exploring virtual worlds has grown into a highly interactive, community-driven brand.
-                            </p>
-                            <p>
-                                Across my channels, you'll find everything from intense gaming sessions and live stream interactions to deep dives into new tech and AI innovations. I believe in honest reviews, high-tier gameplay, and building a space where tech lovers and gamers can unite.
-                            </p>
-                            <p>
-                                When I'm not behind the screen optimizing a build or rendering a video, I'm documenting life through vlogs or cooking up something new in the kitchen. My mission is simple: to entertain, educate, and build an awesome community. 
-                            </p>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-clock neon-text"></i>
+                        <div class="stat-info">
+                            <h3 class="counter" data-target="1200">0</h3>
+                            <span>Hours Live</span>
                         </div>
-
-                        <div class="about-features">
-                            <ul class="feature-list" role="list">
-                                <li><i class="fa-solid fa-check text-neon" aria-hidden="true"></i> Daily High-Quality Uploads</li>
-                                <li><i class="fa-solid fa-check text-neon" aria-hidden="true"></i> Interactive Livestreams</li>
-                                <li><i class="fa-solid fa-check text-neon" aria-hidden="true"></i> Unbiased Tech Reviews</li>
-                                <li><i class="fa-solid fa-check text-neon" aria-hidden="true"></i> Community-First Approach</li>
-                            </ul>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-play neon-text"></i>
+                        <div class="stat-info">
+                            <h3 class="counter" data-target="5000000">0</h3>
+                            <span>Total Views</span>
                         </div>
-
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="achievements" class="achievements-section scroll-animate" aria-labelledby="achievements-heading">
+        <section id="about" class="about-section section-pad reveal">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 id="achievements-heading" class="section-title rgb-text">Milestones & Awards</h2>
-                    <p class="section-description">The trophies unlocked along the journey.</p>
+                    <span class="kicker rgb-text">Origin Story</span>
+                    <h2>BEHIND THE SCREEN</h2>
                 </div>
-
-                <div class="achievement-grid">
-                    
-                    <div class="achievement-card">
-                        <div class="icon-wrapper"><i class="fa-brands fa-youtube" aria-hidden="true"></i></div>
-                        <div class="achievement-info">
-                            <h4>Silver Play Button</h4>
-                            <p>Surpassed 100,000 Subscribers</p>
-                            <span class="date">Unlocked: 2023</span>
-                        </div>
+                <div class="about-layout">
+                    <div class="about-text glass-panel">
+                        <p class="lead">What started as a passion for exploring virtual worlds has grown into a highly interactive, community-driven brand.</p>
+                        <p>Across my channels, you'll find everything from intense gaming sessions and live stream interactions to deep dives into new tech and AI innovations. I believe in honest reviews, high-tier gameplay, and building a space where tech lovers and gamers can unite.</p>
+                        <p>When I'm not rendering a video or optimizing a PC build, I'm documenting life through vlogs or cooking up something new in the kitchen. Grab a snack, tune into the stream, and enjoy the ride.</p>
                     </div>
-
-                    <div class="achievement-card">
-                        <div class="icon-wrapper"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
-                        <div class="achievement-info">
-                            <h4>Pro Streamer Status</h4>
-                            <p>Maintained 1,000+ Average Viewers</p>
-                            <span class="date">Unlocked: 2024</span>
+                    <div class="about-features grid-2">
+                        <div class="feature-box glass-panel">
+                            <i class="fa-solid fa-video rgb-text"></i>
+                            <h4>Daily Uploads</h4>
+                            <p>Consistent, high-quality content across all channels.</p>
                         </div>
-                    </div>
-
-                    <div class="achievement-card">
-                        <div class="icon-wrapper"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
-                        <div class="achievement-info">
-                            <h4>Tech Partner</h4>
-                            <p>Official sponsorship with major hardware brands.</p>
-                            <span class="date">Unlocked: 2025</span>
+                        <div class="feature-box glass-panel">
+                            <i class="fa-solid fa-comments rgb-text"></i>
+                            <h4>Live Chat</h4>
+                            <p>Real-time interactions during Kick and YouTube streams.</p>
                         </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="content" class="categories-section scroll-animate" aria-labelledby="content-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 id="content-heading" class="section-title neon-text">Content Universe</h2>
-                    <p class="section-description">Choose your domain. What are we watching today?</p>
-                </div>
-
-                <div class="category-grid">
-                    
-                    <article class="cat-card rgb-border">
-                        <div class="cat-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
-                        <h3 class="cat-title">Gaming</h3>
-                        <p class="cat-desc">High-tier gameplay, walkthroughs, and competitive highlights.</p>
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz" target="_blank" class="cat-link" aria-label="Watch Gaming Content">Watch Now <i class="fa-solid fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="cat-card rgb-border">
-                        <div class="cat-icon"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></div>
-                        <h3 class="cat-title">Livestreams</h3>
-                        <p class="cat-desc">Real-time interaction, Q&A, and community gaming events.</p>
-                        <a href="https://www.youtube.com/@xdfunYT/streams" target="_blank" class="cat-link" aria-label="Watch Livestreams">Join Live <i class="fa-solid fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="cat-card rgb-border">
-                        <div class="cat-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
-                        <h3 class="cat-title">Tech Reviews</h3>
-                        <p class="cat-desc">In-depth hardware testing, unboxings, and setup tours.</p>
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL7A4S-Kz_ipN6wu1pWehrEa" target="_blank" class="cat-link" aria-label="Watch Tech Reviews">Discover <i class="fa-solid fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="cat-card rgb-border">
-                        <div class="cat-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
-                        <h3 class="cat-title">AI Content</h3>
-                        <p class="cat-desc">Exploring the cutting edge of artificial intelligence software.</p>
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL61XA-5C4RZJny8g9bug_UF" target="_blank" class="cat-link" aria-label="Watch AI Content">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="cat-card rgb-border">
-                        <div class="cat-icon"><i class="fa-solid fa-camera" aria-hidden="true"></i></div>
-                        <h3 class="cat-title">Vlogs</h3>
-                        <p class="cat-desc">Behind the scenes, travel, and daily life adventures.</p>
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL4lEoEYchV7ncO8suh8Rt1W" target="_blank" class="cat-link" aria-label="Watch Vlogs">Watch <i class="fa-solid fa-arrow-right"></i></a>
-                    </article>
-
-                    <article class="cat-card rgb-border">
-                        <div class="cat-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
-                        <h3 class="cat-title">Cooking</h3>
-                        <p class="cat-desc">Taking a break from the screen to cook up amazing dishes.</p>
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6oqEvg8AJdKqWp9hqElCu0" target="_blank" class="cat-link" aria-label="Watch Cooking">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="playlists" class="playlists-section scroll-animate" aria-labelledby="playlists-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 id="playlists-heading" class="section-title rgb-text">Binge The Series</h2>
-                </div>
-
-                <ul class="playlist-grid" role="list">
-                    <li class="playlist-item">
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz" target="_blank" class="playlist-btn rgb-border">
-                            <span class="btn-text">Gaming Setup</span>
-                            <i class="fa-solid fa-play" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="playlist-item">
-                        <a href="https://www.youtube.com/@xdfunYT/streams" target="_blank" class="playlist-btn rgb-border">
-                            <span class="btn-text">Past Streams</span>
-                            <i class="fa-solid fa-play" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="playlist-item">
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL61XA-5C4RZJny8g9bug_UF" target="_blank" class="playlist-btn rgb-border">
-                            <span class="btn-text">Info & Guides</span>
-                            <i class="fa-solid fa-play" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="playlist-item">
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL7A4S-Kz_ipN6wu1pWehrEa" target="_blank" class="playlist-btn rgb-border">
-                            <span class="btn-text">Unboxing Tech</span>
-                            <i class="fa-solid fa-play" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="playlist-item">
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL4lEoEYchV7ncO8suh8Rt1W" target="_blank" class="playlist-btn rgb-border">
-                            <span class="btn-text">IRL Vlogs</span>
-                            <i class="fa-solid fa-play" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="playlist-item">
-                        <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6oqEvg8AJdKqWp9hqElCu0" target="_blank" class="playlist-btn rgb-border">
-                            <span class="btn-text">Chef XDFUN</span>
-                            <i class="fa-solid fa-play" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="recent-content" class="recent-section scroll-animate" aria-labelledby="recent-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 id="recent-heading" class="section-title neon-text">Recent Drop</h2>
-                    <p class="section-description">Check out the latest upload directly from the channel.</p>
-                </div>
-
-                <div class="video-wrapper rgb-border">
-                    <div class="aspect-ratio-box">
-                        <iframe 
-                            src="https://www.youtube.com/embed?listType=playlist&list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz" 
-                            title="XDFUN Latest YouTube Video" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
+                        <div class="feature-box glass-panel">
+                            <i class="fa-solid fa-shield-halved rgb-text"></i>
+                            <h4>Honest Tech</h4>
+                            <p>No-nonsense hardware reviews and unboxings.</p>
+                        </div>
+                        <div class="feature-box glass-panel">
+                            <i class="fa-solid fa-globe rgb-text"></i>
+                            <h4>Global Reach</h4>
+                            <p>Building an international community of gamers.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="brands" class="brands-section scroll-animate" aria-labelledby="brands-heading">
+        <section id="gear" class="gear-section section-pad reveal">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 id="brands-heading" class="section-title rgb-text">Brand Collaborations</h2>
-                    <p class="section-description">Proud to have partnered with industry leaders.</p>
+                    <span class="kicker neon-text">The Arsenal</span>
+                    <h2>STREAMING SETUP</h2>
                 </div>
-
-                <div class="brand-marquee-container">
-                    <div class="brand-track">
-                        <div class="brand-item rgb-border"><span>GamingGear Co.</span></div>
-                        <div class="brand-item rgb-border"><span>TechNova</span></div>
-                        <div class="brand-item rgb-border"><span>StreamLabs</span></div>
-                        <div class="brand-item rgb-border"><span>AORUS</span></div>
-                        <div class="brand-item rgb-border"><span>Energy Drink X</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials-section scroll-animate" aria-labelledby="test-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 id="test-heading" class="section-title neon-text">Community Feedback</h2>
-                </div>
-
-                <div class="testimonial-grid">
-                    
-                    <blockquote class="testimonial-card rgb-border">
-                        <i class="fa-solid fa-quote-left quote-icon" aria-hidden="true"></i>
-                        <p class="quote-text">"XDFUN's tech reviews are the only ones I trust before buying new PC parts. Straight to the point and highly detailed!"</p>
-                        <footer class="quote-author">
-                            <img src="https://via.placeholder.com/50" alt="User Avatar" class="author-img" loading="lazy">
-                            <div class="author-info">
-                                <strong>GamerDude99</strong>
-                                <span>YouTube Subscriber</span>
-                            </div>
-                        </footer>
-                    </blockquote>
-
-                    <blockquote class="testimonial-card rgb-border">
-                        <i class="fa-solid fa-quote-left quote-icon" aria-hidden="true"></i>
-                        <p class="quote-text">"The community in the Discord is unmatched. Bikram actually takes time to interact with us during livestreams. Legend."</p>
-                        <footer class="quote-author">
-                            <img src="https://via.placeholder.com/50" alt="User Avatar" class="author-img" loading="lazy">
-                            <div class="author-info">
-                                <strong>Sarah Streams</strong>
-                                <span>Kick Supporter</span>
-                            </div>
-                        </footer>
-                    </blockquote>
-
-                    <blockquote class="testimonial-card rgb-border">
-                        <i class="fa-solid fa-quote-left quote-icon" aria-hidden="true"></i>
-                        <p class="quote-text">"Great partnership experience. XDFUN delivered incredible engagement for our latest peripheral launch."</p>
-                        <footer class="quote-author">
-                            <img src="https://via.placeholder.com/50" alt="User Avatar" class="author-img" loading="lazy">
-                            <div class="author-info">
-                                <strong>TechNova PR</strong>
-                                <span>Brand Partner</span>
-                            </div>
-                        </footer>
-                    </blockquote>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="timeline" class="timeline-section scroll-animate" aria-labelledby="timeline-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 id="timeline-heading" class="section-title rgb-text">The Journey</h2>
-                    <p class="section-description">How we got to where we are today.</p>
-                </div>
-
-                <div class="timeline-container">
-                    
-                    <div class="timeline-block">
-                        <div class="timeline-icon">
-                            <i class="fa-solid fa-rocket" aria-hidden="true"></i>
-                        </div>
-                        <div class="timeline-content rgb-border">
-                            <h3 class="timeline-title">Level 1: The Beginning</h3>
-                            <span class="timeline-date">Phase 1</span>
-                            <p>Started the channel, focusing strictly on core gaming content, let's plays, and building the foundational community.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-block">
-                        <div class="timeline-icon">
-                            <i class="fa-solid fa-microchip" aria-hidden="true"></i>
-                        </div>
-                        <div class="timeline-content rgb-border">
-                            <h3 class="timeline-title">Level 2: Tech Expansion</h3>
-                            <span class="timeline-date">Phase 2</span>
-                            <p>Introduced tech reviews, hardware unboxings, and AI explorations to the roster, diversifying the content ecosystem.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-block">
-                        <div class="timeline-icon">
-                            <i class="fa-solid fa-video" aria-hidden="true"></i>
-                        </div>
-                        <div class="timeline-content rgb-border">
-                            <h3 class="timeline-title">Level 3: IRL & Lifestyle</h3>
-                            <span class="timeline-date">Phase 3</span>
-                            <p>Brought the community behind the scenes with daily vlogs, studio tours, and even cooking streams.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-block">
-                        <div class="timeline-icon">
-                            <i class="fa-solid fa-crown" aria-hidden="true"></i>
-                        </div>
-                        <div class="timeline-content rgb-border">
-                            <h3 class="timeline-title neon-text">Level MAX: The Future</h3>
-                            <span class="timeline-date">Current</span>
-                            <p>Expanding the brand, scaling up live stream production, and partnering with epic collaborators globally.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="faq" class="faq-section scroll-animate" aria-labelledby="faq-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 id="faq-heading" class="section-title neon-text">System FAQs</h2>
-                </div>
-
-                <div class="accordion-container">
-                    
-                    <div class="accordion-item rgb-border">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">What specs are in your gaming PC?</span>
-                            <i class="fa-solid fa-plus accordion-icon" aria-hidden="true"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>I run a custom-built rig featuring an RTX 4090, Intel Core i9-14900K, 64GB DDR5 RAM, and 4TB NVMe SSD storage. Check the description of my latest tech video for the full parts list!</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item rgb-border">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">What is your stream schedule?</span>
-                            <i class="fa-solid fa-plus accordion-icon" aria-hidden="true"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>I typically stream on Kick and YouTube every Tuesday, Thursday, and Saturday at 8 PM IST. Join the Discord to get live notifications so you never miss a broadcast.</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item rgb-border">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">Are you open to brand deals?</span>
-                            <i class="fa-solid fa-plus accordion-icon" aria-hidden="true"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Yes! I am always looking for innovative tech and gaming brands to partner with. Please use the contact form below or email me directly at connect@xdfun.in for my media kit.</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item rgb-border">
-                        <button class="accordion-header" aria-expanded="false">
-                            <span class="accordion-title">How can I play games with you?</span>
-                            <i class="fa-solid fa-plus accordion-icon" aria-hidden="true"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>I host community game nights once a month! The best way to get involved is to be active in the Discord server, where I announce lobbies and viewer games.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section scroll-animate" aria-labelledby="contact-heading">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 id="contact-heading" class="section-title rgb-text">Establish Connection</h2>
-                    <p class="section-description">For sponsorships, collaborations, or just to say hi.</p>
-                </div>
-
-                <div class="contact-layout">
-                    
-                    <div class="contact-info-panel rgb-border">
-                        <h3>Direct Comms</h3>
-                        <p class="contact-sub">Response time typically within 24-48 hours.</p>
-                        
-                        <ul class="contact-details-list" role="list">
-                            <li>
-                                <div class="icon-box"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
-                                <div class="detail-text">
-                                    <span class="label">Business Email</span>
-                                    <a href="mailto:connect@xdfun.in">connect@xdfun.in</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon-box"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
-                                <div class="detail-text">
-                                    <span class="label">WhatsApp</span>
-                                    <a href="https://wa.me/917059813082" target="_blank" rel="noopener noreferrer">+91 7059813082</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon-box"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
-                                <div class="detail-text">
-                                    <span class="label">Location</span>
-                                    <span>India (Global Online Presence)</span>
-                                </div>
-                            </li>
+                <div class="gear-grid">
+                    <div class="gear-card glass-panel rgb-hover">
+                        <i class="fa-solid fa-computer"></i>
+                        <h3>The Rig</h3>
+                        <ul>
+                            <li>RTX 4090 GPU</li>
+                            <li>Intel Core i9-14900K</li>
+                            <li>64GB DDR5 RAM</li>
+                            <li>Custom Liquid Cooling</li>
                         </ul>
+                    </div>
+                    <div class="gear-card glass-panel rgb-hover">
+                        <i class="fa-solid fa-camera"></i>
+                        <h3>Visuals</h3>
+                        <ul>
+                            <li>Sony A7IV Camera</li>
+                            <li>Sigma 16mm f/1.4 Lens</li>
+                            <li>Elgato Cam Link 4K</li>
+                            <li>Key Light Air Setup</li>
+                        </ul>
+                    </div>
+                    <div class="gear-card glass-panel rgb-hover">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                        <h3>Audio</h3>
+                        <ul>
+                            <li>Shure SM7B Mic</li>
+                            <li>GoXLR Audio Interface</li>
+                            <li>Rode PSA1+ Boom Arm</li>
+                            <li>IEM Audio Monitors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <div class="support-box mt-4">
-                            <h4>Want to support the channel?</h4>
-                            <a href="https://xdtip.in/xdfunYT" target="_blank" rel="noopener noreferrer" class="btn btn-neon w-100">
-                                Send a Tip <i class="fa-solid fa-heart" aria-hidden="true"></i>
-                            </a>
+        <section id="content" class="content-section section-pad reveal">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="kicker rgb-text">Choose Your Path</span>
+                    <h2>CONTENT UNIVERSE</h2>
+                </div>
+                <div class="universe-grid">
+                    <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz" target="_blank" class="universe-card glass-panel">
+                        <div class="card-icon"><i class="fa-solid fa-headset"></i></div>
+                        <div class="card-content">
+                            <h3>Gaming</h3>
+                            <p>High-tier gameplay and competitive highlights.</p>
+                            <span class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/@xdfunYT/streams" target="_blank" class="universe-card glass-panel">
+                        <div class="card-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                        <div class="card-content">
+                            <h3>Livestreams</h3>
+                            <p>Real-time interaction and community events.</p>
+                            <span class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL7A4S-Kz_ipN6wu1pWehrEa" target="_blank" class="universe-card glass-panel">
+                        <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <div class="card-content">
+                            <h3>Tech Reviews</h3>
+                            <p>In-depth hardware testing and unboxings.</p>
+                            <span class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL61XA-5C4RZJny8g9bug_UF" target="_blank" class="universe-card glass-panel">
+                        <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+                        <div class="card-content">
+                            <h3>AI Content</h3>
+                            <p>Exploring the cutting edge of software.</p>
+                            <span class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL4lEoEYchV7ncO8suh8Rt1W" target="_blank" class="universe-card glass-panel">
+                        <div class="card-icon"><i class="fa-solid fa-camera"></i></div>
+                        <div class="card-content">
+                            <h3>IRL Vlogs</h3>
+                            <p>Behind the scenes and travel adventures.</p>
+                            <span class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6oqEvg8AJdKqWp9hqElCu0" target="_blank" class="universe-card glass-panel">
+                        <div class="card-icon"><i class="fa-solid fa-utensils"></i></div>
+                        <div class="card-content">
+                            <h3>Cooking</h3>
+                            <p>Taking a break from screens to cook.</p>
+                            <span class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="recent" class="recent-section section-pad reveal">
+            <div class="container">
+                <div class="video-showcase rgb-border">
+                    <div class="video-header">
+                        <div class="dots"><span></span><span></span><span></span></div>
+                        <div class="title">LATEST_DROP.MP4</div>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="journey-section section-pad reveal">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="kicker neon-text">Progression</span>
+                    <h2>LEVELING UP</h2>
+                </div>
+                <div class="timeline-tree">
+                    <div class="tree-node glass-panel">
+                        <div class="node-marker">1</div>
+                        <h3>The Beginning</h3>
+                        <p>Started the channel, focusing strictly on core gaming content and community.</p>
+                    </div>
+                    <div class="tree-node glass-panel">
+                        <div class="node-marker">2</div>
+                        <h3>Tech Expansion</h3>
+                        <p>Introduced tech reviews, hardware unboxings, and AI explorations.</p>
+                    </div>
+                    <div class="tree-node glass-panel">
+                        <div class="node-marker">3</div>
+                        <h3>IRL & Lifestyle</h3>
+                        <p>Brought the community behind the scenes with vlogs and studio tours.</p>
+                    </div>
+                    <div class="tree-node glass-panel active-node">
+                        <div class="node-marker rgb-text"><i class="fa-solid fa-star"></i></div>
+                        <h3 class="neon-text">The Future</h3>
+                        <p>Expanding the brand, scaling live production, and global collaborations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section-pad reveal">
+            <div class="container">
+                <div class="contact-wrapper glass-panel">
+                    <div class="contact-info">
+                        <h2>ESTABLISH<br><span class="rgb-text">CONNECTION</span></h2>
+                        <p>Open for brand deals, sponsorships, and networking. Drop a message.</p>
+                        <div class="comms-list">
+                            <a href="mailto:connect@xdfun.in" class="comm-item"><i class="fa-solid fa-envelope"></i> connect@xdfun.in</a>
+                            <a href="https://wa.me/917059813082" target="_blank" class="comm-item"><i class="fa-brands fa-whatsapp"></i> +91 7059813082</a>
+                            <a href="https://discord.gg/rCpyBHTQk2" target="_blank" class="comm-item"><i class="fa-brands fa-discord"></i> Join Discord</a>
                         </div>
                     </div>
-
-                    <div class="contact-form-panel rgb-border">
-                        <form id="contact-form" action="mailto:connect@xdfun.in" method="post" enctype="text/plain" class="modern-form">
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="userName">Name <span class="required">*</span></label>
-                                    <input type="text" id="userName" name="userName" required placeholder="Enter your name" aria-required="true">
-                                </div>
-                                <div class="form-group">
-                                    <label for="userEmail">Email <span class="required">*</span></label>
-                                    <input type="email" id="userEmail" name="userEmail" required placeholder="Enter your email" aria-required="true">
-                                </div>
+                    <div class="contact-form-area">
+                        <form id="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+                            <div class="input-group">
+                                <input type="text" name="name" required id="name">
+                                <label for="name">Your Name</label>
                             </div>
-
-                            <div class="form-group">
-                                <label for="inquiryType">Subject</label>
-                                <select id="inquiryType" name="inquiryType" class="custom-select">
-                                    <option value="business">Business / Sponsorship</option>
-                                    <option value="collab">Creator Collaboration</option>
-                                    <option value="fan">General Inquiry</option>
-                                    <option value="other">Other</option>
-                                </select>
+                            <div class="input-group">
+                                <input type="email" name="email" required id="email">
+                                <label for="email">Your Email</label>
                             </div>
-
-                            <div class="form-group">
-                                <label for="userMessage">Message <span class="required">*</span></label>
-                                <textarea id="userMessage" name="userMessage" rows="5" required placeholder="Type your message here..." aria-required="true"></textarea>
+                            <div class="input-group">
+                                <textarea name="message" rows="4" required id="msg"></textarea>
+                                <label for="msg">Transmission Message</label>
                             </div>
-
-                            <button type="submit" class="btn btn-primary submit-btn">
-                                Transmit Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                            <button type="submit" class="btn btn-primary btn-glow w-100" id="submit-btn">
+                                <span>SEND MESSAGE</span> <i class="fa-solid fa-paper-plane"></i>
                             </button>
+                            <div id="form-feedback" class="feedback-msg"></div>
                         </form>
                     </div>
-
                 </div>
             </div>
         </section>
-
     </main>
 
-    <footer class="site-footer" role="contentinfo">
+    <footer class="mega-footer">
         <div class="container">
-            <div class="footer-grid">
-                
-                <div class="footer-col brand-col">
-                    <img src="assets/logo.svg" alt="XDFUN Logo" class="footer-logo" width="120" onerror="this.outerHTML='<h2 class=\'rgb-text\'>XDFUN</h2>';">
-                    <p class="footer-desc">Leveling up the content game with daily uploads, streams, and tech reviews.</p>
+            <div class="footer-top grid-4">
+                <div class="footer-brand">
+                    <img src="assets/logo.svg" alt="XDFUN" class="footer-logo">
+                    <p>Leveling up the content game with daily uploads, streams, and tech reviews.</p>
                 </div>
-
-                <div class="footer-col links-col">
-                    <h4>Quick Links</h4>
-                    <ul role="list">
-                        <li><a href="#hero">Home Base</a></li>
-                        <li><a href="#about">About Me</a></li>
-                        <li><a href="#content">Content Hub</a></li>
-                        <li><a href="#playlists">Playlists</a></li>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#gear">Gear</a></li>
+                        <li><a href="#content">Content</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-col links-col">
-                    <h4>Resources</h4>
-                    <ul role="list">
-                        <li><a href="#achievements">Achievements</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                <div class="footer-links">
+                    <h4>Legal & Support</h4>
+                    <ul>
+                        <li><a href="https://xdtip.in/xdfunYT" target="_blank">Tip Jar</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="https://xdtip.in/xdfunYT" target="_blank" rel="noopener noreferrer">Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-col social-col">
-                    <h4>Network</h4>
-                    <div class="footer-socials">
-                        <a href="https://www.youtube.com/@xdfunYT" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-                        <a href="https://kick.com/xdfun" target="_blank" rel="noopener noreferrer" aria-label="Kick"><i class="fa-brands fa-kickstarter-k" aria-hidden="true"></i></a>
-                        <a href="https://www.instagram.com/cc_xdfun" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                        <a href="https://discord.gg/rCpyBHTQk2" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i class="fa-brands fa-discord" aria-hidden="true"></i></a>
-                    </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form glass-panel">
+                        <input type="email" placeholder="Email address" required>
+                        <button type="button"><i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
                 </div>
-
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2026</span> XDFUN | Bikram Konai. All Rights Reserved.</p>
-                <p class="dev-credit">Designed for the Future</p>
+                <p>&copy; <span id="year">2026</span> XDFUN | Bikram Konai. All Systems Operational.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        // Inline script to handle the new FAQ Accordions without touching main.js
-        document.addEventListener('DOMContentLoaded', () => {
-            const accordions = document.querySelectorAll('.accordion-header');
-            accordions.forEach(acc => {
-                acc.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    const panel = this.nextElementSibling;
-                    const icon = this.querySelector('i');
-                    
-                    // Toggle aria-expanded
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                    this.setAttribute('aria-expanded', !isExpanded);
-                    
-                    if (panel.style.maxHeight) {
-                        panel.style.maxHeight = null;
-                        icon.classList.remove('fa-minus');
-                        icon.classList.add('fa-plus');
-                    } else {
-                        // Close others
-                        accordions.forEach(otherAcc => {
-                            if(otherAcc !== this) {
-                                otherAcc.classList.remove('active');
-                                otherAcc.setAttribute('aria-expanded', 'false');
-                                otherAcc.nextElementSibling.style.maxHeight = null;
-                                const otherIcon = otherAcc.querySelector('i');
-                                otherIcon.classList.remove('fa-minus');
-                                otherIcon.classList.add('fa-plus');
-                            }
-                        });
-                        panel.style.maxHeight = panel.scrollHeight + "px";
-                        icon.classList.remove('fa-plus');
-                        icon.classList.add('fa-minus');
-                    }
-                });
-            });
-            
-            // Set dynamic year in footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // Simple Preloader fade out
-            window.addEventListener('load', () => {
-                const preloader = document.getElementById('preloader');
-                preloader.style.opacity = '0';
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500);
-            });
-        });
-    </script>
 </body>
 </html>

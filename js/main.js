@@ -60,32 +60,35 @@ typeEffect();
 // Anthem Player
 // ==========================
 
-const anthem = document.getElementById("anthem");
-const musicBtn = document.getElementById("musicBtn");
+const anthem =
+document.getElementById("anthem");
+
+const musicBtn =
+document.getElementById("musicBtn");
 
 let isPlaying = false;
 
-musicBtn.addEventListener("click", () => {
+musicBtn.addEventListener("click",()=>{
 
-  if (!isPlaying) {
+    if(!isPlaying){
 
-    anthem.play();
+        anthem.play();
 
-    musicBtn.innerHTML =
-      '<i class="fas fa-pause"></i> Pause Anthem';
+        musicBtn.innerHTML =
+        '<i class="fas fa-pause"></i>';
 
-    isPlaying = true;
+        isPlaying = true;
 
-  } else {
+    }else{
 
-    anthem.pause();
+        anthem.pause();
 
-    musicBtn.innerHTML =
-      '<i class="fas fa-play"></i> Play Anthem';
+        musicBtn.innerHTML =
+        '<i class="fas fa-play"></i>';
 
-    isPlaying = false;
+        isPlaying = false;
 
-  }
+    }
 
 });
 

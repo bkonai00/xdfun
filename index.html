@@ -2,469 +2,284 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XDFUN | Gaming • Technology • Entertainment</title>
+    <meta name="description" content="Official website of XDFUN. Gaming, Livestreams, Technology, Vlogs, Cooking and Entertainment. Created by Bikram Konai.">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="XDFUN">
+    <meta property="og:description" content="Official Website of XDFUN">
+    <meta property="og:image" content="assets/pic.jpg">
 
-<title>XDFUN | Gaming • Technology • Entertainment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<meta name="description" content="Official website of XDFUN. Gaming, Livestreams, Technology, Vlogs, Cooking and Entertainment. Created by Bikram Konai.">
+    <link rel="stylesheet" href="css/style.css">
 
-<meta property="og:title" content="XDFUN">
-<meta property="og:description" content="Official Website of XDFUN">
-<meta property="og:image" content="assets/pic.jpg">
+    <style>
+        /* Floating Anthem Button */
+        .floating-music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 65px;
+            height: 65px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #fff;
+            background: linear-gradient(135deg, #29b6ff, #7c3aed);
+            box-shadow: 0 0 20px rgba(41, 182, 255, .4), 0 0 40px rgba(124, 58, 237, .3);
+            transition: .3s;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        .floating-music-btn:hover {
+            transform: scale(1.08);
+        }
 
-<style>
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
 
-/* Floating Anthem Button */
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50px;
+        }
 
-.floating-music-btn{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    width:65px;
-    height:65px;
-    border:none;
-    border-radius:50%;
-    cursor:pointer;
-    z-index:9999;
+        @media(max-width: 992px) {
+            .hamburger {
+                display: flex;
+            }
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+            .nav-links {
+                position: fixed;
+                top: 85px;
+                right: -100%;
+                width: 280px;
+                height: calc(100vh - 85px);
+                background: #050816;
+                flex-direction: column;
+                padding: 40px;
+                transition: .35s;
+                z-index: 999;
+            }
 
-    font-size:1.3rem;
+            .nav-links.active {
+                right: 0;
+            }
+        }
 
-    color:#fff;
+        /* Recent Content */
+        #recent-content {
+            text-align: center;
+        }
 
-    background:linear-gradient(
-        135deg,
-        #29b6ff,
-        #7c3aed
-    );
+        .youtube-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
 
-    box-shadow:
-        0 0 20px rgba(41,182,255,.4),
-        0 0 40px rgba(124,58,237,.3);
+        .youtube-grid iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            border-radius: 20px;
+            background: #101826;
+        }
 
-    transition:.3s;
-}
+        .channel-button {
+            margin-top: 40px;
+        }
 
-.floating-music-btn:hover{
-    transform:scale(1.08);
-}
+        @media(max-width: 768px) {
+            .youtube-grid {
+                grid-template-columns: 1fr;
+            }
 
-.hamburger{
-    display:none;
-    flex-direction:column;
-    gap:5px;
-    cursor:pointer;
-}
-
-.hamburger span{
-    width:28px;
-    height:3px;
-    background:#fff;
-    border-radius:50px;
-}
-
-@media(max-width:992px){
-
-    .hamburger{
-        display:flex;
-    }
-
-    .nav-links{
-        position:fixed;
-        top:85px;
-        right:-100%;
-        width:280px;
-        height:calc(100vh - 85px);
-
-        background:#050816;
-
-        flex-direction:column;
-        padding:40px;
-
-        transition:.35s;
-        z-index:999;
-    }
-
-    .nav-links.active{
-        right:0;
-    }
-}
-
-#recent-content{
-    text-align:center;
-}
-
-.youtube-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
-    gap:30px;
-    margin-top:40px;
-}
-
-.youtube-grid iframe{
-    width:100%;
-    height:350px;
-    border:none;
-    border-radius:20px;
-    background:#101826;
-}
-
-.channel-button{
-    margin-top:40px;
-}
-
-@media(max-width:768px){
-
-    .youtube-grid{
-        grid-template-columns:1fr;
-    }
-
-    .youtube-grid iframe{
-        height:250px;
-    }
-
-}
-
-</style>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+            .youtube-grid iframe {
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div id="particles"></div>
-
-<!-- NAVBAR -->
-
-<nav>
-
-<div class="logo">
-  <img src="assets/logo.svg" alt="XDFUN">
-</div>
-
-<ul class="nav-links" id="navLinks">
-
-<li><a href="#about">About</a></li>
-<li><a href="#content">Content</a></li>
-<li><a href="#journey">Journey</a></li>
-<li><a href="#support">Support</a></li>
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-<div class="hamburger" id="hamburger">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<span class="badge">
-Official Website
-</span>
-
-<h1>XDFUN</h1>
-
-<h2 id="typing"></h2>
-
-<p>
-
-Gaming, Livestreams, Technology, Vlogs and Entertainment.
-
-Built by creator Bikram Konai.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="https://www.youtube.com/@xdfunYT"
-target="_blank"
-class="btn primary">
-Watch Content
-</a>
-
-<a href="https://xdtip.in/xdfunYT"
-target="_blank"
-class="btn secondary">
-Support Creator
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img src="assets/pic.jpg" alt="Bikram Konai">
-
-</div>
-
-</section>
-
-<audio id="anthem">
-
-<source src="assets/antham.mp3" type="audio/mpeg">
-
-</audio>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<h2>About XDFUN</h2>
-
-<p>
-
-Bikram Konai, known online as XDFUN, is a passionate content creator, gamer, livestreamer and technology enthusiast dedicated to creating engaging experiences for audiences across multiple platforms.
-
-From gaming adventures and livestreams to technology content, informational videos, vlogs and community-driven entertainment, XDFUN continues to grow a vibrant digital community built around creativity and authenticity.
-
-</p>
-
-</section>
-
-<!-- CONTENT -->
-
-<section id="content">
-
-<h2>Content Universe</h2>
-
-<div class="cards">
-
-<a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz" target="_blank" class="card">
-🎮
-<h3>Gaming</h3>
-</a>
-
-<a href="https://www.youtube.com/@xdfunYT/streams" target="_blank" class="card">
-🔴
-<h3>Livestreams</h3>
-</a>
-
-<a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL61XA-5C4RZJny8g9bug_UF" target="_blank" class="card">
-🧠
-<h3>Information</h3>
-</a>
-
-<a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL7A4S-Kz_ipN6wu1pWehrEa" target="_blank" class="card">
-⚡
-<h3>Tech & Unboxing</h3>
-</a>
-
-<a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL4lEoEYchV7ncO8suh8Rt1W" target="_blank" class="card">
-📷
-<h3>Vlogs</h3>
-</a>
-
-<a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6oqEvg8AJdKqWp9hqElCu0" target="_blank" class="card">
-🍳
-<h3>Cooking</h3>
-</a>
-
-</div>
-
-</section>
-
-<!-- JOURNEY -->
-
-<section id="journey">
-
-<h2>Journey</h2>
-
-<div class="timeline">
-
-<div>Started Creating Content</div>
-<div>Built Online Community</div>
-<div>Expanded Into Livestreaming</div>
-<div>Technology & Information Content</div>
-<div>Growing The XDFUN Brand</div>
-
-</div>
-
-</section>
-
-<!-- SUPPORT -->
-
-<section id="support">
-
-<h2>Support XDFUN</h2>
-
-<p>
-
-Your support helps improve content quality, livestreams, equipment and future projects.
-
-</p>
-
-<a href="https://xdtip.in/xdfunYT"
-target="_blank"
-class="btn primary">
-
-Support Now
-
-</a>
-
-</section>
-
-<!-- SOCIAL -->
-
-<section class="socials">
-
-<h2>Connect With Me</h2>
-
-<div class="social-grid">
-
-<a href="https://www.youtube.com/@xdfunYT">
-<i class="fab fa-youtube"></i>
-</a>
-
-<a href="https://kick.com/xdfun">
-<i class="fas fa-bolt"></i>
-</a>
-
-<a href="https://www.instagram.com/cc_xdfun">
-<i class="fab fa-instagram"></i>
-</a>
-
-<a href="https://discord.gg/rCpyBHTQk2">
-<i class="fab fa-discord"></i>
-</a>
-
-<a href="mailto:connect@xdfun.in">
-<i class="fas fa-envelope"></i>
-</a>
-
-<a href="https://wa.me/917059813082">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-</div>
-
-</section>
-
-<!-- RECENT CONTENT -->
-
-<section id="recent-content">
-
-<h2>Latest Content</h2>
-
-<div class="youtube-grid">
-
-<iframe
-src="https://www.youtube.com/embed/videoseries?list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz"
-title="Gaming Playlist"
-allowfullscreen>
-</iframe>
-
-<iframe
-src="https://www.youtube.com/embed/videoseries?list=PLbIH9-qMLUL61XA-5C4RZJny8g9bug_UF"
-title="Information Playlist"
-allowfullscreen>
-</iframe>
-
-</div>
-
-<div class="channel-button">
-
-<a
-href="https://www.youtube.com/@xdfunYT"
-target="_blank"
-class="btn primary">
-
-View All Content
-
-</a>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2>Contact</h2>
-
-<form action="https://formspree.io/f/mregvbpn"
-method="POST">
-
-<input type="text"
-name="name"
-placeholder="Your Name"
-required>
-
-<input type="email"
-name="email"
-placeholder="Your Email"
-required>
-
-<textarea
-name="message"
-placeholder="Your Message"
-required></textarea>
-
-<button type="submit"
-class="btn primary">
-
-Send Message
-
-</button>
-
-</form>
-
-</section>
-
-<footer>
-
-<img src="assets/logo.svg">
-
-<p>
-
-© 2026 XDFUN.
-All Rights Reserved.
-
-</p>
-
-</footer>
-
-<script src="js/main.js"></script>
-
-  <button id="musicBtn" class="floating-music-btn">
-    <i class="fas fa-play"></i>
-</button>
-  <script>
-
-const hamburger =
-document.getElementById("hamburger");
-
-const navLinks =
-document.getElementById("navLinks");
-
-hamburger.addEventListener("click",()=>{
-
-    navLinks.classList.toggle("active");
-
-});
-
-</script>
-
+    <div id="particles"></div>
+
+    <nav>
+        <div class="logo">
+            <img src="assets/logo.svg" alt="XDFUN">
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#content">Content</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Official Website</span>
+            <h1>XDFUN</h1>
+            <h2 id="typing"></h2>
+            <p>Gaming, Livestreams, Technology, Vlogs and Entertainment.<br>Built by creator Bikram Konai.</p>
+            <div class="hero-buttons">
+                <a href="https://www.youtube.com/@xdfunYT" target="_blank" class="btn primary">Watch Content</a>
+                <a href="https://xdtip.in/xdfunYT" target="_blank" class="btn secondary">Support Creator</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="assets/pic.jpg" alt="Bikram Konai">
+        </div>
+    </section>
+
+    <audio id="anthem">
+        <source src="assets/antham.mp3" type="audio/mpeg">
+    </audio>
+
+    <section id="about">
+        <h2>About XDFUN</h2>
+        <p>Bikram Konai, known online as XDFUN, is a passionate content creator, gamer, livestreamer and technology enthusiast dedicated to creating engaging experiences for audiences across multiple platforms.</p>
+        <p>From gaming adventures and livestreams to technology content, informational videos, vlogs and community-driven entertainment, XDFUN continues to grow a vibrant digital community built around creativity and authenticity.</p>
+    </section>
+
+    <section id="content">
+        <h2>Content Universe</h2>
+        <div class="cards">
+            <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz" target="_blank" class="card">
+                🎮 <h3>Gaming</h3>
+            </a>
+            <a href="https://www.youtube.com/@xdfunYT/streams" target="_blank" class="card">
+                🔴 <h3>Livestreams</h3>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL61XA-5C4RZJny8g9bug_UF" target="_blank" class="card">
+                🧠 <h3>Information</h3>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL7A4S-Kz_ipN6wu1pWehrEa" target="_blank" class="card">
+                ⚡ <h3>Tech & Unboxing</h3>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL4lEoEYchV7ncO8suh8Rt1W" target="_blank" class="card">
+                📷 <h3>Vlogs</h3>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLbIH9-qMLUL6oqEvg8AJdKqWp9hqElCu0" target="_blank" class="card">
+                🍳 <h3>Cooking</h3>
+            </a>
+        </div>
+    </section>
+
+    <section id="journey">
+        <h2>Journey</h2>
+        <div class="timeline">
+            <div>Started Creating Content</div>
+            <div>Built Online Community</div>
+            <div>Expanded Into Livestreaming</div>
+            <div>Technology & Information Content</div>
+            <div>Growing The XDFUN Brand</div>
+        </div>
+    </section>
+
+    <section id="support">
+        <h2>Support XDFUN</h2>
+        <p>Your support helps improve content quality, livestreams, equipment and future projects.</p>
+        <a href="https://xdtip.in/xdfunYT" target="_blank" class="btn primary">Support Now</a>
+    </section>
+
+    <section class="socials">
+        <h2>Connect With Me</h2>
+        <div class="social-grid">
+            <a href="https://www.youtube.com/@xdfunYT" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://kick.com/xdfun" aria-label="Kick"><i class="fas fa-bolt"></i></a>
+            <a href="https://www.instagram.com/cc_xdfun" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://discord.gg/rCpyBHTQk2" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="mailto:connect@xdfun.in" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/917059813082" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </section>
+
+    <section id="recent-content">
+        <h2>Latest Content</h2>
+        <div class="youtube-grid">
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz" title="Gaming Playlist" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLbIH9-qMLUL61XA-5C4RZJny8g9bug_UF" title="Information Playlist" allowfullscreen></iframe>
+        </div>
+        <div class="channel-button">
+            <a href="https://www.youtube.com/@xdfunYT" target="_blank" class="btn primary">View All Content</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form action="https://formspree.io/f/mregvbpn" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn primary">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <img src="assets/logo.svg" alt="XDFUN Logo">
+        <p>© 2026 XDFUN. All Rights Reserved.</p>
+    </footer>
+
+    <button id="musicBtn" class="floating-music-btn" aria-label="Play Anthem">
+        <i class="fas fa-play"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Hamburger Menu Logic
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        }
+
+        // Music Button Logic
+        const musicBtn = document.getElementById("musicBtn");
+        const anthem = document.getElementById("anthem");
+        const icon = musicBtn.querySelector("i");
+
+        if (musicBtn && anthem && icon) {
+            musicBtn.addEventListener("click", () => {
+                if (anthem.paused) {
+                    anthem.play();
+                    icon.classList.remove("fa-play");
+                    icon.classList.add("fa-pause");
+                } else {
+                    anthem.pause();
+                    icon.classList.remove("fa-pause");
+                    icon.classList.add("fa-play");
+                }
+            });
+        }
+    </script>
 </body>
 </html>

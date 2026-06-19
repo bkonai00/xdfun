@@ -1,372 +1,352 @@
-// ==========================
-// XDFUN Official Website JS
-// ==========================
+// ===============================
+// MOBILE MENU
+// ===============================
 
-// Typing Effect
+const hamburger = document.getElementById("hamburger");
+const navbar = document.getElementById("navbar");
 
-const typingElement = document.getElementById("typing");
+if (hamburger && navbar) {
 
-const words = [
-  "Content Creator",
-  "Gamer",
-  "Tech Enthusiast",
-  "Livestreamer",
-  "Community Builder"
-];
+    hamburger.addEventListener("click", () => {
 
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-function typeEffect() {
-
-  const currentWord = words[wordIndex];
-
-  if (!deleting) {
-
-    typingElement.textContent =
-      currentWord.substring(0, charIndex + 1);
-
-    charIndex++;
-
-    if (charIndex === currentWord.length) {
-      deleting = true;
-      setTimeout(typeEffect, 1500);
-      return;
-    }
-
-  } else {
-
-    typingElement.textContent =
-      currentWord.substring(0, charIndex - 1);
-
-    charIndex--;
-
-    if (charIndex === 0) {
-      deleting = false;
-      wordIndex = (wordIndex + 1) % words.length;
-    }
-
-  }
-
-  setTimeout(typeEffect, deleting ? 50 : 100);
-
-}
-
-typeEffect();
-
-
-// ==========================
-// Anthem Player
-// ==========================
-
-const anthem =
-document.getElementById("anthem");
-
-const musicBtn =
-document.getElementById("musicBtn");
-
-let isPlaying = false;
-
-musicBtn.addEventListener("click",()=>{
-
-if(!isPlaying){
-
-anthem.play();
-
-musicBtn.innerHTML =
-'<i class="fas fa-pause"></i>';
-
-musicBtn.classList.add("playing");
-
-isPlaying = true;
-
-}else{
-
-anthem.pause();
-
-musicBtn.innerHTML =
-'<i class="fas fa-play"></i>';
-
-musicBtn.classList.remove("playing");
-
-isPlaying = false;
-
-}
-
-});
-
-// ==========================
-// Scroll Reveal
-// ==========================
-
-const reveals =
-  document.querySelectorAll(
-    "section, .card, .timeline div"
-  );
-
-function revealElements() {
-
-  const windowHeight = window.innerHeight;
-
-  reveals.forEach((element) => {
-
-    const top =
-      element.getBoundingClientRect().top;
-
-    if (top < windowHeight - 120) {
-      element.classList.add("active");
-    }
-
-  });
-
-}
-
-reveals.forEach((el) => {
-  el.classList.add("reveal");
-});
-
-window.addEventListener("scroll", revealElements);
-
-revealElements();
-
-
-// ==========================
-// Navbar Background
-// ==========================
-
-const nav = document.querySelector("nav");
-
-window.addEventListener("scroll", () => {
-
-  if (window.scrollY > 80) {
-
-    nav.style.background =
-      "rgba(5,8,22,.92)";
-
-    nav.style.boxShadow =
-      "0 10px 30px rgba(0,0,0,.25)";
-
-  } else {
-
-    nav.style.background =
-      "rgba(5,8,22,.65)";
-
-    nav.style.boxShadow =
-      "none";
-
-  }
-
-});
-
-
-// ==========================
-// Floating Particles
-// ==========================
-
-const particleContainer =
-  document.getElementById("particles");
-
-for (let i = 0; i < 80; i++) {
-
-  const particle =
-    document.createElement("span");
-
-  const size =
-    Math.random() * 4 + 1;
-
-  particle.style.position = "absolute";
-
-  particle.style.width =
-    size + "px";
-
-  particle.style.height =
-    size + "px";
-
-  particle.style.borderRadius =
-    "50%";
-
-  particle.style.background =
-    Math.random() > 0.5
-      ? "#29b6ff"
-      : "#ff3b3b";
-
-  particle.style.left =
-    Math.random() * 100 + "%";
-
-  particle.style.top =
-    Math.random() * 100 + "%";
-
-  particle.style.opacity =
-    Math.random();
-
-  particle.style.animation =
-    `floatParticle ${
-      Math.random() * 20 + 10
-    }s linear infinite`;
-
-  particleContainer.appendChild(
-    particle
-  );
-
-}
-
-
-// ==========================
-// Mouse Parallax Hero
-// ==========================
-
-const heroImage =
-  document.querySelector(".hero-image img");
-
-document.addEventListener(
-  "mousemove",
-  (e) => {
-
-    const x =
-      (window.innerWidth / 2 - e.pageX)
-      / 40;
-
-    const y =
-      (window.innerHeight / 2 - e.pageY)
-      / 40;
-
-    heroImage.style.transform =
-      `translate(${x}px, ${y}px)`;
-
-  }
-);
-
-
-// ==========================
-// Smooth Active Nav Link
-// ==========================
-
-const navLinks =
-  document.querySelectorAll(
-    ".nav-links a"
-  );
-
-window.addEventListener(
-  "scroll",
-  () => {
-
-    let current = "";
-
-    document
-      .querySelectorAll("section")
-      .forEach((section) => {
-
-        const sectionTop =
-          section.offsetTop - 150;
-
-        if (
-          scrollY >= sectionTop
-        ) {
-          current = section.id;
-        }
-
-      });
-
-    navLinks.forEach((link) => {
-
-      link.classList.remove(
-        "active-link"
-      );
-
-      if (
-        link.href.includes(
-          current
-        )
-      ) {
-
-        link.classList.add(
-          "active-link"
-        );
-
-      }
+        navbar.classList.toggle("active");
+        hamburger.classList.toggle("active");
 
     });
 
-  }
-);
+    document.querySelectorAll(".navbar a").forEach(link => {
 
+        link.addEventListener("click", () => {
 
-// ==========================
-// Form Success Message
-// ==========================
+            navbar.classList.remove("active");
+            hamburger.classList.remove("active");
 
-const form =
-  document.querySelector("form");
+        });
 
-if (form) {
-
-  form.addEventListener(
-    "submit",
-    () => {
-
-      setTimeout(() => {
-
-        alert(
-          "Thanks for reaching out to XDFUN!"
-        );
-
-      }, 1000);
-
-    }
-  );
+    });
 
 }
-// ==========================
-// Mobile Menu
-// ==========================
 
-const hamburger =
-document.getElementById("hamburger");
+// ===============================
+// FAQ ACCORDION
+// ===============================
 
-const mobileNav =
-document.getElementById("navLinks");
+const faqItems = document.querySelectorAll(".faq-item");
 
-if(hamburger){
+faqItems.forEach(item => {
 
-hamburger.addEventListener("click",()=>{
+    const question = item.querySelector(".faq-question");
 
-mobileNav.classList.toggle("active");
+    question.addEventListener("click", () => {
+
+        faqItems.forEach(other => {
+
+            if (other !== item) {
+                other.classList.remove("active");
+            }
+
+        });
+
+        item.classList.toggle("active");
+
+    });
 
 });
 
+// ===============================
+// MUSIC PLAYER
+// ===============================
+
+const musicBtn = document.getElementById("musicToggle");
+const anthem = document.getElementById("anthem");
+
+let isPlaying = false;
+
+if (musicBtn && anthem) {
+
+    musicBtn.addEventListener("click", () => {
+
+        if (isPlaying) {
+
+            anthem.pause();
+
+            musicBtn.innerHTML =
+                '<i class="fas fa-music"></i>';
+
+            localStorage.setItem("xdfun_music", "paused");
+
+            isPlaying = false;
+
+        } else {
+
+            anthem.play();
+
+            musicBtn.innerHTML =
+                '<i class="fas fa-pause"></i>';
+
+            localStorage.setItem("xdfun_music", "playing");
+
+            isPlaying = true;
+
+        }
+
+    });
+
 }
 
+// ===============================
+// RESTORE MUSIC STATE
+// ===============================
 
-// ==========================
-// Dynamic Copyright Year
-// ==========================
+window.addEventListener("load", () => {
 
-const footerText =
-  document.querySelector(
-    "footer p"
-  );
+    const musicState =
+        localStorage.getItem("xdfun_music");
 
-if (footerText) {
+    if (musicState === "playing") {
 
-  footerText.innerHTML =
-    `© ${new Date().getFullYear()} XDFUN. All Rights Reserved.`;
+        anthem.play().catch(() => {});
+
+        musicBtn.innerHTML =
+            '<i class="fas fa-pause"></i>';
+
+        isPlaying = true;
+
+    }
+
+});
+
+// ===============================
+// COUNTER ANIMATION
+// ===============================
+
+const counters =
+    document.querySelectorAll(".counter");
+
+const counterObserver =
+    new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                const counter = entry.target;
+
+                const target =
+                    parseInt(counter.dataset.target);
+
+                let current = 0;
+
+                const increment =
+                    Math.ceil(target / 100);
+
+                const updateCounter = () => {
+
+                    current += increment;
+
+                    if (current >= target) {
+
+                        counter.textContent = target;
+
+                    } else {
+
+                        counter.textContent = current;
+
+                        requestAnimationFrame(updateCounter);
+
+                    }
+
+                };
+
+                updateCounter();
+
+                counterObserver.unobserve(counter);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.5
+    });
+
+counters.forEach(counter => {
+
+    counterObserver.observe(counter);
+
+});
+
+// ===============================
+// SCROLL REVEAL
+// ===============================
+
+const revealElements = document.querySelectorAll(
+    ".content-card, .playlist-card, .achievement-card, .stat-card, .timeline-item, .testimonial-card, .brand-box, .faq-item"
+);
+
+revealElements.forEach(el => {
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition =
+        "all 0.8s ease";
+
+});
+
+const revealObserver =
+    new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform =
+                    "translateY(0)";
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+revealElements.forEach(el => {
+
+    revealObserver.observe(el);
+
+});
+
+// ===============================
+// HEADER SCROLL EFFECT
+// ===============================
+
+const header =
+    document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 80) {
+
+        header.style.background =
+            "rgba(5,8,22,.95)";
+
+        header.style.boxShadow =
+            "0 10px 30px rgba(0,0,0,.3)";
+
+    } else {
+
+        header.style.background =
+            "rgba(5,8,22,.75)";
+
+        header.style.boxShadow =
+            "none";
+
+    }
+
+});
+
+// ===============================
+// ACTIVE NAV LINK
+// ===============================
+
+const sections =
+    document.querySelectorAll("section");
+
+const navLinks =
+    document.querySelectorAll(".navbar a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 150;
+
+        const sectionHeight =
+            section.offsetHeight;
+
+        if (
+            pageYOffset >= sectionTop &&
+            pageYOffset <
+            sectionTop + sectionHeight
+        ) {
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active-link");
+
+        if (
+            link.getAttribute("href") ===
+            `#${current}`
+        ) {
+            link.classList.add("active-link");
+        }
+
+    });
+
+});
+
+// ===============================
+// CURRENT YEAR
+// ===============================
+
+const yearElement =
+    document.getElementById("year");
+
+if (yearElement) {
+
+    yearElement.textContent =
+        new Date().getFullYear();
 
 }
 
+// ===============================
+// PARALLAX EFFECT
+// ===============================
 
-// ==========================
-// Console Signature
-// ==========================
+window.addEventListener("mousemove", e => {
+
+    const glowRing =
+        document.querySelector(".glow-ring");
+
+    if (!glowRing) return;
+
+    const x =
+        (window.innerWidth / 2 - e.clientX) / 40;
+
+    const y =
+        (window.innerHeight / 2 - e.clientY) / 40;
+
+    glowRing.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+});
+
+// ===============================
+// PRELOADER (OPTIONAL)
+// ===============================
+
+window.addEventListener("load", () => {
+
+    document.body.classList.add("loaded");
+
+});
+
+// ===============================
+// CONSOLE MESSAGE
+// ===============================
 
 console.log(`
-██████╗ ██████╗ ███████╗██╗   ██╗███╗   ██╗
-██╔══██╗██╔══██╗██╔════╝██║   ██║████╗  ██║
-██████╔╝██████╔╝█████╗  ██║   ██║██╔██╗ ██║
-██╔═══╝ ██╔══██╗██╔══╝  ██║   ██║██║╚██╗██║
-██║     ██║  ██║███████╗╚██████╔╝██║ ╚████║
-╚═╝     ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝
-
-Official XDFUN Website
-Built for Bikram Konai
+=================================
+XDFUN OFFICIAL WEBSITE
+Content Creator • Gamer • Tech
+=================================
 `);

@@ -98,6 +98,41 @@
     }
 }
 
+#recent-content{
+    text-align:center;
+}
+
+.youtube-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.youtube-grid iframe{
+    width:100%;
+    height:350px;
+    border:none;
+    border-radius:20px;
+    background:#101826;
+}
+
+.channel-button{
+    margin-top:40px;
+}
+
+@media(max-width:768px){
+
+    .youtube-grid{
+        grid-template-columns:1fr;
+    }
+
+    .youtube-grid iframe{
+        height:250px;
+    }
+
+}
+
 </style>
 
 <link rel="stylesheet"
@@ -319,6 +354,43 @@ Support Now
 
 <a href="https://wa.me/917059813082">
 <i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+
+</section>
+
+<!-- RECENT CONTENT -->
+
+<section id="recent-content">
+
+<h2>Latest Content</h2>
+
+<div class="youtube-grid">
+
+<iframe
+src="https://www.youtube.com/embed/videoseries?list=PLbIH9-qMLUL6K_ieZqrg6J_va4Jd7tUKz"
+title="Gaming Playlist"
+allowfullscreen>
+</iframe>
+
+<iframe
+src="https://www.youtube.com/embed/videoseries?list=PLbIH9-qMLUL61XA-5C4RZJny8g9bug_UF"
+title="Information Playlist"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="channel-button">
+
+<a
+href="https://www.youtube.com/@xdfunYT"
+target="_blank"
+class="btn primary">
+
+View All Content
+
 </a>
 
 </div>

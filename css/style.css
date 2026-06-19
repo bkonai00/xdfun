@@ -290,3 +290,62 @@ footer { background: var(--surface-color); padding: 40px 5%; text-align: center;
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     .hero-buttons { flex-direction: column; }
 }
+/* --- New Global Utilities --- */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.mt-4 { margin-top: 1.5rem; }
+.w-100 { width: 100%; text-align: center; }
+
+/* --- Preloader --- */
+#preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease; }
+.loader-content { text-align: center; }
+.progress-bar { width: 200px; height: 4px; background: rgba(255,255,255,0.1); margin: 20px auto; border-radius: 2px; overflow: hidden; }
+.progress { width: 50%; height: 100%; background: var(--neon-blue); animation: loadBar 2s infinite ease-in-out; }
+@keyframes loadBar { 0% { transform: translateX(-100%); } 100% { transform: translateX(200%); } }
+
+/* --- Achievements Grid --- */
+.achievement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.achievement-card { display: flex; align-items: center; gap: 20px; background: rgba(255,255,255,0.03); padding: 25px; border-radius: 8px; border-left: 4px solid var(--neon-blue); }
+.achievement-card i { font-size: 2.5rem; color: var(--neon-blue); }
+.achievement-info h4 { font-size: 1.2rem; margin-bottom: 5px; }
+.achievement-info p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 5px; }
+.achievement-info .date { font-size: 0.8rem; color: var(--rgb-2); }
+
+/* --- Brands Marquee --- */
+.brand-marquee-container { overflow: hidden; width: 100%; padding: 20px 0; }
+.brand-track { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+.brand-item { padding: 20px 40px; background: var(--surface-color); font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; font-weight: bold; color: var(--text-muted); }
+
+/* --- Testimonials --- */
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.testimonial-card { padding: 40px; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+.quote-icon { font-size: 2rem; color: rgba(0, 229, 255, 0.2); position: absolute; top: 20px; right: 20px; }
+.quote-text { font-style: italic; margin-bottom: 20px; z-index: 1; position: relative; }
+.quote-author { display: flex; align-items: center; gap: 15px; }
+.author-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+.author-info strong { display: block; color: var(--neon-blue); }
+.author-info span { font-size: 0.8rem; color: var(--text-muted); }
+
+/* --- FAQ Accordion --- */
+.accordion-container { max-width: 800px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 15px; }
+.accordion-item { overflow: hidden; }
+.accordion-header { width: 100%; padding: 20px; display: flex; justify-content: space-between; align-items: center; background: transparent; border: none; color: white; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 1.1rem; text-align: left; transition: background 0.3s; }
+.accordion-header:hover, .accordion-header.active { background: rgba(0, 229, 255, 0.05); }
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(0,0,0,0.2); }
+.accordion-content p { padding: 20px; color: var(--text-muted); }
+
+/* --- Enhanced Forms --- */
+.modern-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; text-transform: uppercase; }
+.required { color: var(--rgb-1); }
+.custom-select { width: 100%; padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 4px; font-family: 'Inter', sans-serif; appearance: none; }
+
+/* --- Advanced Footer --- */
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; text-align: left; }
+.footer-col h4 { margin-bottom: 20px; color: var(--neon-blue); }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: var(--text-muted); transition: 0.3s; }
+.footer-col ul li a:hover { color: white; padding-left: 5px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.9rem; }
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-bottom { flex-direction: column; gap: 10px; align-items: center; } }

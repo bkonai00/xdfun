@@ -1,352 +1,112 @@
-// ===============================
-// MOBILE MENU
-// ===============================
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Mobile Hamburger Menu ---
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
 
-const hamburger = document.getElementById("hamburger");
-const navbar = document.getElementById("navbar");
-
-if (hamburger && navbar) {
-
-    hamburger.addEventListener("click", () => {
-
-        navbar.classList.toggle("active");
-        hamburger.classList.toggle("active");
-
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 
-    document.querySelectorAll(".navbar a").forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            navbar.classList.remove("active");
-            hamburger.classList.remove("active");
-
+    // Close menu when a link is clicked
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
         });
-
     });
 
-}
+    // --- Floating Anthem Button ---
+    const musicBtn = document.getElementById('music-btn');
+    const anthem = document.getElementById('anthem');
+    const icon = musicBtn.querySelector('i');
+    let isPlaying = false;
 
-// ===============================
-// FAQ ACCORDION
-// ===============================
+    // Set volume to a reasonable level so it doesn't blast ears
+    anthem.volume = 0.3; 
 
-const faqItems = document.querySelectorAll(".faq-item");
-
-faqItems.forEach(item => {
-
-    const question = item.querySelector(".faq-question");
-
-    question.addEventListener("click", () => {
-
-        faqItems.forEach(other => {
-
-            if (other !== item) {
-                other.classList.remove("active");
-            }
-
-        });
-
-        item.classList.toggle("active");
-
-    });
-
-});
-
-// ===============================
-// MUSIC PLAYER
-// ===============================
-
-const musicBtn = document.getElementById("musicToggle");
-const anthem = document.getElementById("anthem");
-
-let isPlaying = false;
-
-if (musicBtn && anthem) {
-
-    musicBtn.addEventListener("click", () => {
-
+    musicBtn.addEventListener('click', () => {
         if (isPlaying) {
-
             anthem.pause();
-
-            musicBtn.innerHTML =
-                '<i class="fas fa-music"></i>';
-
-            localStorage.setItem("xdfun_music", "paused");
-
-            isPlaying = false;
-
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+            musicBtn.classList.remove('playing');
         } else {
-
-            anthem.play();
-
-            musicBtn.innerHTML =
-                '<i class="fas fa-pause"></i>';
-
-            localStorage.setItem("xdfun_music", "playing");
-
-            isPlaying = true;
-
+            // Error handling for autoplay policies
+            anthem.play().then(() => {
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+                musicBtn.classList.add('playing');
+            }).catch(error => {
+                console.log("Audio playback was prevented by the browser. Interaction required first.");
+            });
         }
-
+        isPlaying = !isPlaying;
     });
 
-}
+    // --- Scroll Animations (Intersection Observer) ---
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-// ===============================
-// RESTORE MUSIC STATE
-// ===============================
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                
+                // Trigger stats counter if it's the stats section
+                if (entry.target.id === 'stats' && !entry.target.classList.contains('counted')) {
+                    runCounters();
+                    entry.target.classList.add('counted');
+                }
+            }
+        });
+    }, observerOptions);
 
-window.addEventListener("load", () => {
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+    animatedElements.forEach(el => observer.observe(el));
 
-    const musicState =
-        localStorage.getItem("xdfun_music");
+    // --- Stats Counter Animation ---
+    function runCounters() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // The lower the slower
 
-    if (musicState === "playing") {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText.replace(/,/g, '');
+                
+                const inc = target / speed;
 
-        anthem.play().catch(() => {});
-
-        musicBtn.innerHTML =
-            '<i class="fas fa-pause"></i>';
-
-        isPlaying = true;
-
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc).toLocaleString();
+                    setTimeout(updateCount, 15);
+                } else {
+                    counter.innerText = target.toLocaleString() + (target > 1000 ? '+' : '');
+                }
+            };
+            updateCount();
+        });
     }
 
-});
-
-// ===============================
-// COUNTER ANIMATION
-// ===============================
-
-const counters =
-    document.querySelectorAll(".counter");
-
-const counterObserver =
-    new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                const counter = entry.target;
-
-                const target =
-                    parseInt(counter.dataset.target);
-
-                let current = 0;
-
-                const increment =
-                    Math.ceil(target / 100);
-
-                const updateCounter = () => {
-
-                    current += increment;
-
-                    if (current >= target) {
-
-                        counter.textContent = target;
-
-                    } else {
-
-                        counter.textContent = current;
-
-                        requestAnimationFrame(updateCounter);
-
-                    }
-
-                };
-
-                updateCounter();
-
-                counterObserver.unobserve(counter);
-
+    // --- Smooth Scrolling for internal links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // offset for fixed header
+                    behavior: 'smooth'
+                });
             }
-
         });
-
-    }, {
-        threshold: 0.5
-    });
-
-counters.forEach(counter => {
-
-    counterObserver.observe(counter);
-
-});
-
-// ===============================
-// SCROLL REVEAL
-// ===============================
-
-const revealElements = document.querySelectorAll(
-    ".content-card, .playlist-card, .achievement-card, .stat-card, .timeline-item, .testimonial-card, .brand-box, .faq-item"
-);
-
-revealElements.forEach(el => {
-
-    el.style.opacity = "0";
-    el.style.transform = "translateY(40px)";
-    el.style.transition =
-        "all 0.8s ease";
-
-});
-
-const revealObserver =
-    new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.style.opacity = "1";
-                entry.target.style.transform =
-                    "translateY(0)";
-
-            }
-
-        });
-
-    }, {
-        threshold: 0.15
-    });
-
-revealElements.forEach(el => {
-
-    revealObserver.observe(el);
-
-});
-
-// ===============================
-// HEADER SCROLL EFFECT
-// ===============================
-
-const header =
-    document.querySelector(".header");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 80) {
-
-        header.style.background =
-            "rgba(5,8,22,.95)";
-
-        header.style.boxShadow =
-            "0 10px 30px rgba(0,0,0,.3)";
-
-    } else {
-
-        header.style.background =
-            "rgba(5,8,22,.75)";
-
-        header.style.boxShadow =
-            "none";
-
-    }
-
-});
-
-// ===============================
-// ACTIVE NAV LINK
-// ===============================
-
-const sections =
-    document.querySelectorAll("section");
-
-const navLinks =
-    document.querySelectorAll(".navbar a");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop =
-            section.offsetTop - 150;
-
-        const sectionHeight =
-            section.offsetHeight;
-
-        if (
-            pageYOffset >= sectionTop &&
-            pageYOffset <
-            sectionTop + sectionHeight
-        ) {
-            current = section.getAttribute("id");
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active-link");
-
-        if (
-            link.getAttribute("href") ===
-            `#${current}`
-        ) {
-            link.classList.add("active-link");
-        }
-
     });
 
 });
-
-// ===============================
-// CURRENT YEAR
-// ===============================
-
-const yearElement =
-    document.getElementById("year");
-
-if (yearElement) {
-
-    yearElement.textContent =
-        new Date().getFullYear();
-
-}
-
-// ===============================
-// PARALLAX EFFECT
-// ===============================
-
-window.addEventListener("mousemove", e => {
-
-    const glowRing =
-        document.querySelector(".glow-ring");
-
-    if (!glowRing) return;
-
-    const x =
-        (window.innerWidth / 2 - e.clientX) / 40;
-
-    const y =
-        (window.innerHeight / 2 - e.clientY) / 40;
-
-    glowRing.style.transform =
-        `translate(${x}px, ${y}px)`;
-
-});
-
-// ===============================
-// PRELOADER (OPTIONAL)
-// ===============================
-
-window.addEventListener("load", () => {
-
-    document.body.classList.add("loaded");
-
-});
-
-// ===============================
-// CONSOLE MESSAGE
-// ===============================
-
-console.log(`
-=================================
-XDFUN OFFICIAL WEBSITE
-Content Creator • Gamer • Tech
-=================================
-`);

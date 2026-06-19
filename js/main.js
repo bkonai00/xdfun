@@ -70,28 +70,31 @@ let isPlaying = false;
 
 musicBtn.addEventListener("click",()=>{
 
-    if(!isPlaying){
+if(!isPlaying){
 
-        anthem.play();
+anthem.play();
 
-        musicBtn.innerHTML =
-        '<i class="fas fa-pause"></i>';
+musicBtn.innerHTML =
+'<i class="fas fa-pause"></i>';
 
-        isPlaying = true;
+musicBtn.classList.add("playing");
 
-    }else{
+isPlaying = true;
 
-        anthem.pause();
+}else{
 
-        musicBtn.innerHTML =
-        '<i class="fas fa-play"></i>';
+anthem.pause();
 
-        isPlaying = false;
+musicBtn.innerHTML =
+'<i class="fas fa-play"></i>';
 
-    }
+musicBtn.classList.remove("playing");
+
+isPlaying = false;
+
+}
 
 });
-
 
 // ==========================
 // Scroll Reveal
@@ -312,6 +315,25 @@ if (form) {
 
     }
   );
+
+}
+// ==========================
+// Mobile Menu
+// ==========================
+
+const hamburger =
+document.getElementById("hamburger");
+
+const mobileNav =
+document.getElementById("navLinks");
+
+if(hamburger){
+
+hamburger.addEventListener("click",()=>{
+
+mobileNav.classList.toggle("active");
+
+});
 
 }
 

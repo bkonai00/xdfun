@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================
-       8. Audio Player Controller
+       8. Audio Player Controller (Debug Version)
     ========================================== */
     const musicBtn = document.getElementById('music-btn');
     const anthem = document.getElementById('anthem');
@@ -186,16 +186,20 @@ document.addEventListener('DOMContentLoaded', () => {
         anthem.volume = 0.2; // Safe volume
         musicBtn.addEventListener('click', () => {
             if (anthem.paused) {
+                // Try to play the music
                 anthem.play().then(() => {
                     musicBtn.classList.add('playing');
-                }).catch(e => console.log("Audio play blocked by browser."));
+                }).catch(e => {
+                    // If it fails, pop up an alert telling you exactly why
+                    console.error("Audio Error: ", e);
+                    alert("Error playing audio! Check if 'assets/anthem.mp3' exists and is spelled correctly (all lowercase).");
+                });
             } else {
                 anthem.pause();
                 musicBtn.classList.remove('playing');
             }
         });
     }
-
     /* ==========================================
        9. AJAX Form Submission (Formspree)
     ========================================== */

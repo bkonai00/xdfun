@@ -3,17 +3,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     /* ==========================================
-       1. Preloader Logic
+       1. Preloader Logic (FAIL-SAFE VERSION)
     ========================================== */
     const preloader = document.getElementById('preloader');
-    window.addEventListener('load', () => {
-        setTimeout(() => {
+    
+    // Function to handle the fade out
+    function removePreloader() {
+        if (preloader && preloader.style.display !== 'none') {
             preloader.style.opacity = '0';
             setTimeout(() => {
                 preloader.style.display = 'none';
             }, 500);
-        }, 800); // Slight delay to ensure smooth entry
+        }
+    }
+
+    // Primary: Wait for all assets to load
+    window.addEventListener('load', () => {
+        setTimeout(removePreloader, 500); // 0.5s delay for smooth entry
     });
+
+    // Fallback: If YouTube or an image hangs, force the preloader to close after 3 seconds
+    setTimeout(removePreloader, 3000);
 
     /* ==========================================
        2. Custom Cursor tracking
